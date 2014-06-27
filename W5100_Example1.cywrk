@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CyXmlSerializer>
+<!--This file is machine generated and read. It is not intended to be edited by hand.-->
+<!--Due to this, there is no schema for this file.-->
+<CyGuid_2867d519-54d2-4c01-9830-c51cb08bc3dd type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWrkspc" version="5" xml_contents_version="2" name="W5100_Example1" persistent="" platform="NOT_USED">
+<current_project name=".\W5100_Example 1-PSoC_Pioneer.cydsn\W5100_Example 1-PSoC_Pioneer.cyprj" />
+<wrkspc_folders />
+<files />
+<projects>
+<name_val_pair name="W5100_Example1-FreeSoC_Explorer" v=".\W5100_Example1-FreeSoC_Explorer.cydsn\W5100_Example1-FreeSoC_Explorer.cyprj" />
+<name_val_pair name="W5100_Example 1-PSoC_Pioneer" v=".\W5100_Example 1-PSoC_Pioneer.cydsn\W5100_Example 1-PSoC_Pioneer.cyprj" />
+<name_val_pair name="E2ForLife_W5100" v=".\E2ForLife_W5100.cylib\E2ForLife_W5100.cyprj" />
+</projects>
+<workspace_id v="d7ac52f7-9f86-4dd4-b298-5e05ec2613fc" />
+<WriteAppVersionLastSavedWith v="3.0.0.3023" />
+<WriteAppMarketingVersionLastSavedWith v="3.0 SP1" />
+<CyGuid_dcbd9771-0334-43dc-9cc3-fe99dc3c5316 type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjDependencyList" version="3">
+<wrkspc_dependencies />
+</CyGuid_dcbd9771-0334-43dc-9cc3-fe99dc3c5316>
+<CyGuid_63b68103-67f5-4406-8da6-5c8625765b82 type_name="CyDesigner.Common.ProjMgmt.Model.CyIgnoredSystemDepsList" version="1">
+<wrkspc_dependencies />
+</CyGuid_63b68103-67f5-4406-8da6-5c8625765b82>
+</CyGuid_2867d519-54d2-4c01-9830-c51cb08bc3dd>
+</CyXmlSerializer>

@@ -1,0 +1,971 @@
+ARM GAS  C:\Users\CHUCK~1.ERH\AppData\Local\Temp\ccVgEDCI.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 4
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"main.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.startup.main,"ax",%progbits
+  19              		.align	1
+  20              		.global	main
+  21              		.thumb
+  22              		.thumb_func
+  23              		.type	main, %function
+  24              	main:
+  25              	.LFB56:
+  26              		.file 1 ".\\main.c"
+   1:.\main.c      **** /* ========================================
+   2:.\main.c      ****  *
+   3:.\main.c      ****  * Copyright YOUR COMPANY, THE YEAR
+   4:.\main.c      ****  * All Rights Reserved
+   5:.\main.c      ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:.\main.c      ****  *
+   7:.\main.c      ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:.\main.c      ****  * WHICH IS THE PROPERTY OF your company.
+   9:.\main.c      ****  *
+  10:.\main.c      ****  * ========================================
+  11:.\main.c      **** */
+  12:.\main.c      **** #include <project.h>
+  13:.\main.c      **** 
+  14:.\main.c      **** int main()
+  15:.\main.c      **** {
+  27              		.loc 1 15 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31 0000 10B5     		push	{r4, lr}
+  32              	.LCFI0:
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 4, -8
+  35              		.cfi_offset 14, -4
+  16:.\main.c      **** 	uint8 tcpSocket;
+  17:.\main.c      **** 	/*
+  18:.\main.c      **** 	 * First the SPI perepheral must be initialized so that the
+  19:.\main.c      **** 	 * W5100 driver has hardware to use for the chip initialization
+  20:.\main.c      **** 	 * that will occur next
+  21:.\main.c      **** 	 */
+  22:.\main.c      **** 	SPIM_Start();
+ARM GAS  C:\Users\CHUCK~1.ERH\AppData\Local\Temp\ccVgEDCI.s 			page 2
+
+
+  36              		.loc 1 22 0
+  37 0002 FFF7FEFF 		bl	SPIM_Start
+  38              	.LVL0:
+  23:.\main.c      ****   	/*
+  24:.\main.c      **** 	 * The next section initialized the W5100 to default settings
+  25:.\main.c      **** 	 * setup in the component confiuration dialog.
+  26:.\main.c      **** 	 */
+  27:.\main.c      **** 	W5100_Start();
+  39              		.loc 1 27 0
+  40 0006 FFF7FEFF 		bl	W5100_Start
+  41              	.LVL1:
+  42              	.L6:
+  28:.\main.c      ****     for(;;)
+  29:.\main.c      ****     {
+  30:.\main.c      ****         /*
+  31:.\main.c      **** 		 * Now that the W5100 is initialized and configured,
+  32:.\main.c      **** 		 * open a socket, then start a server and wait for connections
+  33:.\main.c      **** 		 */
+  34:.\main.c      **** 		tcpSocket = W5100_TcpOpen( 23 );
+  43              		.loc 1 34 0
+  44 000a 1720     		movs	r0, #23
+  45 000c FFF7FEFF 		bl	W5100_TcpOpen
+  46              	.LVL2:
+  35:.\main.c      **** 		/*
+  36:.\main.c      **** 		 * If the socket was opened the socket number will be 0 - 3
+  37:.\main.c      **** 		 * to reflect the socket that was used within the W5100
+  38:.\main.c      **** 		 */
+  39:.\main.c      **** 		if (tcpSocket < 4) {
+  47              		.loc 1 39 0
+  48 0010 0328     		cmp	r0, #3
+  34:.\main.c      **** 		tcpSocket = W5100_TcpOpen( 23 );
+  49              		.loc 1 34 0
+  50 0012 0446     		mov	r4, r0
+  51              	.LVL3:
+  52              		.loc 1 39 0
+  53 0014 F9D8     		bhi	.L6
+  40:.\main.c      **** 			/* Wait for server connections */
+  41:.\main.c      **** 			W5100_TcpStartServerWait( tcpSocket );
+  54              		.loc 1 41 0
+  55 0016 FFF7FEFF 		bl	W5100_TcpStartServerWait
+  56              	.LVL4:
+  42:.\main.c      **** 			/* Send the string to the remote terminal */
+  43:.\main.c      **** 			W5100_TcpPrint(tcpSocket,"\x1b[2JHello From E2ForLife.com\r\n");
+  57              		.loc 1 43 0
+  58 001a 0849     		ldr	r1, .L8
+  59 001c 2046     		mov	r0, r4
+  60 001e FFF7FEFF 		bl	W5100_TcpPrint
+  61              	.LVL5:
+  44:.\main.c      **** 			/* Wait for string to transmit over the network before closing */
+  45:.\main.c      **** 			CyDelay(10);
+  62              		.loc 1 45 0
+  63 0022 0A20     		movs	r0, #10
+  64 0024 FFF7FEFF 		bl	CyDelay
+  65              	.LVL6:
+  46:.\main.c      **** 			/* Disconnect from client (drop connection) */
+  47:.\main.c      **** 			W5100_TcpDisconnect(tcpSocket);
+  66              		.loc 1 47 0
+ARM GAS  C:\Users\CHUCK~1.ERH\AppData\Local\Temp\ccVgEDCI.s 			page 3
+
+
+  67 0028 2046     		mov	r0, r4
+  68 002a FFF7FEFF 		bl	W5100_TcpDisconnect
+  69              	.LVL7:
+  48:.\main.c      **** 			/* Close the socket */
+  49:.\main.c      **** 			CyDelay(50);
+  70              		.loc 1 49 0
+  71 002e 3220     		movs	r0, #50
+  72 0030 FFF7FEFF 		bl	CyDelay
+  73              	.LVL8:
+  50:.\main.c      **** 			W5100_SocketClose(tcpSocket);
+  74              		.loc 1 50 0
+  75 0034 2046     		mov	r0, r4
+  76 0036 FFF7FEFF 		bl	W5100_SocketClose
+  77              	.LVL9:
+  78 003a E6E7     		b	.L6
+  79              	.L9:
+  80              		.align	2
+  81              	.L8:
+  82 003c 00000000 		.word	.LC0
+  83              		.cfi_endproc
+  84              	.LFE56:
+  85              		.size	main, .-main
+  86              		.section	.rodata.str1.1,"aMS",%progbits,1
+  87              	.LC0:
+  88 0000 1B5B324A 		.ascii	"\033[2JHello From E2ForLife.com\015\012\000"
+  88      48656C6C 
+  88      6F204672 
+  88      6F6D2045 
+  88      32466F72 
+  89              		.text
+  90              	.Letext0:
+  91              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\3.0\\psoc creator\\import\\gnu_cs\\arm\\4
+  92              		.file 3 "./Generated_Source/PSoC5/cytypes.h"
+  93              		.file 4 "./Generated_Source/PSoC5/SPIM.h"
+  94              		.file 5 "./Generated_Source/PSoC5/W5100.h"
+  95              		.file 6 "./Generated_Source/PSoC5/CyLib.h"
+  96              		.file 7 "./Generated_Source/PSoC5/core_cm3.h"
+  97              		.section	.debug_info,"",%progbits
+  98              	.Ldebug_info0:
+  99 0000 36020000 		.4byte	0x236
+ 100 0004 0200     		.2byte	0x2
+ 101 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 102 000a 04       		.byte	0x4
+ 103 000b 01       		.uleb128 0x1
+ 104 000c 95010000 		.4byte	.LASF23
+ 105 0010 01       		.byte	0x1
+ 106 0011 8B000000 		.4byte	.LASF24
+ 107 0015 00000000 		.4byte	.LASF25
+ 108 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 109 001d 00000000 		.4byte	0
+ 110 0021 00000000 		.4byte	0
+ 111 0025 00000000 		.4byte	.Ldebug_line0
+ 112 0029 02       		.uleb128 0x2
+ 113 002a 01       		.byte	0x1
+ 114 002b 06       		.byte	0x6
+ 115 002c E7010000 		.4byte	.LASF0
+ 116 0030 02       		.uleb128 0x2
+ARM GAS  C:\Users\CHUCK~1.ERH\AppData\Local\Temp\ccVgEDCI.s 			page 4
+
+
+ 117 0031 01       		.byte	0x1
+ 118 0032 08       		.byte	0x8
+ 119 0033 7D000000 		.4byte	.LASF1
+ 120 0037 02       		.uleb128 0x2
+ 121 0038 02       		.byte	0x2
+ 122 0039 05       		.byte	0x5
+ 123 003a 85010000 		.4byte	.LASF2
+ 124 003e 02       		.uleb128 0x2
+ 125 003f 02       		.byte	0x2
+ 126 0040 07       		.byte	0x7
+ 127 0041 A6000000 		.4byte	.LASF3
+ 128 0045 03       		.uleb128 0x3
+ 129 0046 52010000 		.4byte	.LASF9
+ 130 004a 02       		.byte	0x2
+ 131 004b 4F       		.byte	0x4f
+ 132 004c 50000000 		.4byte	0x50
+ 133 0050 02       		.uleb128 0x2
+ 134 0051 04       		.byte	0x4
+ 135 0052 05       		.byte	0x5
+ 136 0053 DE010000 		.4byte	.LASF4
+ 137 0057 02       		.uleb128 0x2
+ 138 0058 04       		.byte	0x4
+ 139 0059 07       		.byte	0x7
+ 140 005a 94000000 		.4byte	.LASF5
+ 141 005e 02       		.uleb128 0x2
+ 142 005f 08       		.byte	0x8
+ 143 0060 05       		.byte	0x5
+ 144 0061 63010000 		.4byte	.LASF6
+ 145 0065 02       		.uleb128 0x2
+ 146 0066 08       		.byte	0x8
+ 147 0067 07       		.byte	0x7
+ 148 0068 09010000 		.4byte	.LASF7
+ 149 006c 04       		.uleb128 0x4
+ 150 006d 04       		.byte	0x4
+ 151 006e 05       		.byte	0x5
+ 152 006f 696E7400 		.ascii	"int\000"
+ 153 0073 02       		.uleb128 0x2
+ 154 0074 04       		.byte	0x4
+ 155 0075 07       		.byte	0x7
+ 156 0076 EA000000 		.4byte	.LASF8
+ 157 007a 03       		.uleb128 0x3
+ 158 007b 8F010000 		.4byte	.LASF10
+ 159 007f 03       		.byte	0x3
+ 160 0080 5B       		.byte	0x5b
+ 161 0081 30000000 		.4byte	0x30
+ 162 0085 03       		.uleb128 0x3
+ 163 0086 D2000000 		.4byte	.LASF11
+ 164 008a 03       		.byte	0x3
+ 165 008b 5C       		.byte	0x5c
+ 166 008c 3E000000 		.4byte	0x3e
+ 167 0090 03       		.uleb128 0x3
+ 168 0091 E3000000 		.4byte	.LASF12
+ 169 0095 03       		.byte	0x3
+ 170 0096 5D       		.byte	0x5d
+ 171 0097 57000000 		.4byte	0x57
+ 172 009b 02       		.uleb128 0x2
+ 173 009c 04       		.byte	0x4
+ARM GAS  C:\Users\CHUCK~1.ERH\AppData\Local\Temp\ccVgEDCI.s 			page 5
+
+
+ 174 009d 04       		.byte	0x4
+ 175 009e 77000000 		.4byte	.LASF13
+ 176 00a2 02       		.uleb128 0x2
+ 177 00a3 08       		.byte	0x8
+ 178 00a4 04       		.byte	0x4
+ 179 00a5 C6000000 		.4byte	.LASF14
+ 180 00a9 02       		.uleb128 0x2
+ 181 00aa 01       		.byte	0x1
+ 182 00ab 08       		.byte	0x8
+ 183 00ac 71010000 		.4byte	.LASF15
+ 184 00b0 02       		.uleb128 0x2
+ 185 00b1 04       		.byte	0x4
+ 186 00b2 07       		.byte	0x7
+ 187 00b3 5A010000 		.4byte	.LASF16
+ 188 00b7 05       		.uleb128 0x5
+ 189 00b8 04       		.byte	0x4
+ 190 00b9 BD000000 		.4byte	0xbd
+ 191 00bd 06       		.uleb128 0x6
+ 192 00be A9000000 		.4byte	0xa9
+ 193 00c2 07       		.uleb128 0x7
+ 194 00c3 01       		.byte	0x1
+ 195 00c4 CD000000 		.4byte	.LASF26
+ 196 00c8 01       		.byte	0x1
+ 197 00c9 0E       		.byte	0xe
+ 198 00ca 6C000000 		.4byte	0x6c
+ 199 00ce 00000000 		.4byte	.LFB56
+ 200 00d2 40000000 		.4byte	.LFE56
+ 201 00d6 00000000 		.4byte	.LLST0
+ 202 00da 01       		.byte	0x1
+ 203 00db 90010000 		.4byte	0x190
+ 204 00df 08       		.uleb128 0x8
+ 205 00e0 D9000000 		.4byte	.LASF27
+ 206 00e4 01       		.byte	0x1
+ 207 00e5 10       		.byte	0x10
+ 208 00e6 7A000000 		.4byte	0x7a
+ 209 00ea 20000000 		.4byte	.LLST1
+ 210 00ee 09       		.uleb128 0x9
+ 211 00ef 06000000 		.4byte	.LVL0
+ 212 00f3 A3010000 		.4byte	0x1a3
+ 213 00f7 09       		.uleb128 0x9
+ 214 00f8 0A000000 		.4byte	.LVL1
+ 215 00fc AD010000 		.4byte	0x1ad
+ 216 0100 0A       		.uleb128 0xa
+ 217 0101 10000000 		.4byte	.LVL2
+ 218 0105 B7010000 		.4byte	0x1b7
+ 219 0109 13010000 		.4byte	0x113
+ 220 010d 0B       		.uleb128 0xb
+ 221 010e 01       		.byte	0x1
+ 222 010f 50       		.byte	0x50
+ 223 0110 01       		.byte	0x1
+ 224 0111 47       		.byte	0x47
+ 225 0112 00       		.byte	0
+ 226 0113 0A       		.uleb128 0xa
+ 227 0114 1A000000 		.4byte	.LVL4
+ 228 0118 D0010000 		.4byte	0x1d0
+ 229 011c 27010000 		.4byte	0x127
+ 230 0120 0B       		.uleb128 0xb
+ARM GAS  C:\Users\CHUCK~1.ERH\AppData\Local\Temp\ccVgEDCI.s 			page 6
+
+
+ 231 0121 01       		.byte	0x1
+ 232 0122 50       		.byte	0x50
+ 233 0123 02       		.byte	0x2
+ 234 0124 74       		.byte	0x74
+ 235 0125 00       		.sleb128 0
+ 236 0126 00       		.byte	0
+ 237 0127 0A       		.uleb128 0xa
+ 238 0128 22000000 		.4byte	.LVL5
+ 239 012c E5010000 		.4byte	0x1e5
+ 240 0130 44010000 		.4byte	0x144
+ 241 0134 0B       		.uleb128 0xb
+ 242 0135 01       		.byte	0x1
+ 243 0136 51       		.byte	0x51
+ 244 0137 05       		.byte	0x5
+ 245 0138 03       		.byte	0x3
+ 246 0139 00000000 		.4byte	.LC0
+ 247 013d 0B       		.uleb128 0xb
+ 248 013e 01       		.byte	0x1
+ 249 013f 50       		.byte	0x50
+ 250 0140 02       		.byte	0x2
+ 251 0141 74       		.byte	0x74
+ 252 0142 00       		.sleb128 0
+ 253 0143 00       		.byte	0
+ 254 0144 0A       		.uleb128 0xa
+ 255 0145 28000000 		.4byte	.LVL6
+ 256 0149 FF010000 		.4byte	0x1ff
+ 257 014d 57010000 		.4byte	0x157
+ 258 0151 0B       		.uleb128 0xb
+ 259 0152 01       		.byte	0x1
+ 260 0153 50       		.byte	0x50
+ 261 0154 01       		.byte	0x1
+ 262 0155 3A       		.byte	0x3a
+ 263 0156 00       		.byte	0
+ 264 0157 0A       		.uleb128 0xa
+ 265 0158 2E000000 		.4byte	.LVL7
+ 266 015c 13020000 		.4byte	0x213
+ 267 0160 6B010000 		.4byte	0x16b
+ 268 0164 0B       		.uleb128 0xb
+ 269 0165 01       		.byte	0x1
+ 270 0166 50       		.byte	0x50
+ 271 0167 02       		.byte	0x2
+ 272 0168 74       		.byte	0x74
+ 273 0169 00       		.sleb128 0
+ 274 016a 00       		.byte	0
+ 275 016b 0A       		.uleb128 0xa
+ 276 016c 34000000 		.4byte	.LVL8
+ 277 0170 FF010000 		.4byte	0x1ff
+ 278 0174 7F010000 		.4byte	0x17f
+ 279 0178 0B       		.uleb128 0xb
+ 280 0179 01       		.byte	0x1
+ 281 017a 50       		.byte	0x50
+ 282 017b 02       		.byte	0x2
+ 283 017c 08       		.byte	0x8
+ 284 017d 32       		.byte	0x32
+ 285 017e 00       		.byte	0
+ 286 017f 0C       		.uleb128 0xc
+ 287 0180 3A000000 		.4byte	.LVL9
+ARM GAS  C:\Users\CHUCK~1.ERH\AppData\Local\Temp\ccVgEDCI.s 			page 7
+
+
+ 288 0184 28020000 		.4byte	0x228
+ 289 0188 0B       		.uleb128 0xb
+ 290 0189 01       		.byte	0x1
+ 291 018a 50       		.byte	0x50
+ 292 018b 02       		.byte	0x2
+ 293 018c 74       		.byte	0x74
+ 294 018d 00       		.sleb128 0
+ 295 018e 00       		.byte	0
+ 296 018f 00       		.byte	0
+ 297 0190 0D       		.uleb128 0xd
+ 298 0191 B9000000 		.4byte	.LASF28
+ 299 0195 07       		.byte	0x7
+ 300 0196 1606     		.2byte	0x616
+ 301 0198 9E010000 		.4byte	0x19e
+ 302 019c 01       		.byte	0x1
+ 303 019d 01       		.byte	0x1
+ 304 019e 0E       		.uleb128 0xe
+ 305 019f 45000000 		.4byte	0x45
+ 306 01a3 0F       		.uleb128 0xf
+ 307 01a4 01       		.byte	0x1
+ 308 01a5 39010000 		.4byte	.LASF17
+ 309 01a9 04       		.byte	0x4
+ 310 01aa 58       		.byte	0x58
+ 311 01ab 01       		.byte	0x1
+ 312 01ac 01       		.byte	0x1
+ 313 01ad 0F       		.uleb128 0xf
+ 314 01ae 01       		.byte	0x1
+ 315 01af F3010000 		.4byte	.LASF18
+ 316 01b3 05       		.byte	0x5
+ 317 01b4 C7       		.byte	0xc7
+ 318 01b5 01       		.byte	0x1
+ 319 01b6 01       		.byte	0x1
+ 320 01b7 10       		.uleb128 0x10
+ 321 01b8 01       		.byte	0x1
+ 322 01b9 44010000 		.4byte	.LASF29
+ 323 01bd 05       		.byte	0x5
+ 324 01be 6401     		.2byte	0x164
+ 325 01c0 01       		.byte	0x1
+ 326 01c1 7A000000 		.4byte	0x7a
+ 327 01c5 01       		.byte	0x1
+ 328 01c6 D0010000 		.4byte	0x1d0
+ 329 01ca 11       		.uleb128 0x11
+ 330 01cb 85000000 		.4byte	0x85
+ 331 01cf 00       		.byte	0
+ 332 01d0 12       		.uleb128 0x12
+ 333 01d1 01       		.byte	0x1
+ 334 01d2 20010000 		.4byte	.LASF19
+ 335 01d6 05       		.byte	0x5
+ 336 01d7 8201     		.2byte	0x182
+ 337 01d9 01       		.byte	0x1
+ 338 01da 01       		.byte	0x1
+ 339 01db E5010000 		.4byte	0x1e5
+ 340 01df 11       		.uleb128 0x11
+ 341 01e0 7A000000 		.4byte	0x7a
+ 342 01e4 00       		.byte	0
+ 343 01e5 12       		.uleb128 0x12
+ 344 01e6 01       		.byte	0x1
+ARM GAS  C:\Users\CHUCK~1.ERH\AppData\Local\Temp\ccVgEDCI.s 			page 8
+
+
+ 345 01e7 76010000 		.4byte	.LASF20
+ 346 01eb 05       		.byte	0x5
+ 347 01ec F501     		.2byte	0x1f5
+ 348 01ee 01       		.byte	0x1
+ 349 01ef 01       		.byte	0x1
+ 350 01f0 FF010000 		.4byte	0x1ff
+ 351 01f4 11       		.uleb128 0x11
+ 352 01f5 7A000000 		.4byte	0x7a
+ 353 01f9 11       		.uleb128 0x11
+ 354 01fa B7000000 		.4byte	0xb7
+ 355 01fe 00       		.byte	0
+ 356 01ff 13       		.uleb128 0x13
+ 357 0200 01       		.byte	0x1
+ 358 0201 FF010000 		.4byte	.LASF21
+ 359 0205 06       		.byte	0x6
+ 360 0206 77       		.byte	0x77
+ 361 0207 01       		.byte	0x1
+ 362 0208 01       		.byte	0x1
+ 363 0209 13020000 		.4byte	0x213
+ 364 020d 11       		.uleb128 0x11
+ 365 020e 90000000 		.4byte	0x90
+ 366 0212 00       		.byte	0
+ 367 0213 12       		.uleb128 0x12
+ 368 0214 01       		.byte	0x1
+ 369 0215 63000000 		.4byte	.LASF22
+ 370 0219 05       		.byte	0x5
+ 371 021a B001     		.2byte	0x1b0
+ 372 021c 01       		.byte	0x1
+ 373 021d 01       		.byte	0x1
+ 374 021e 28020000 		.4byte	0x228
+ 375 0222 11       		.uleb128 0x11
+ 376 0223 7A000000 		.4byte	0x7a
+ 377 0227 00       		.byte	0
+ 378 0228 14       		.uleb128 0x14
+ 379 0229 01       		.byte	0x1
+ 380 022a F7000000 		.4byte	.LASF30
+ 381 022e 05       		.byte	0x5
+ 382 022f 3201     		.2byte	0x132
+ 383 0231 01       		.byte	0x1
+ 384 0232 01       		.byte	0x1
+ 385 0233 11       		.uleb128 0x11
+ 386 0234 7A000000 		.4byte	0x7a
+ 387 0238 00       		.byte	0
+ 388 0239 00       		.byte	0
+ 389              		.section	.debug_abbrev,"",%progbits
+ 390              	.Ldebug_abbrev0:
+ 391 0000 01       		.uleb128 0x1
+ 392 0001 11       		.uleb128 0x11
+ 393 0002 01       		.byte	0x1
+ 394 0003 25       		.uleb128 0x25
+ 395 0004 0E       		.uleb128 0xe
+ 396 0005 13       		.uleb128 0x13
+ 397 0006 0B       		.uleb128 0xb
+ 398 0007 03       		.uleb128 0x3
+ 399 0008 0E       		.uleb128 0xe
+ 400 0009 1B       		.uleb128 0x1b
+ 401 000a 0E       		.uleb128 0xe
+ARM GAS  C:\Users\CHUCK~1.ERH\AppData\Local\Temp\ccVgEDCI.s 			page 9
+
+
+ 402 000b 55       		.uleb128 0x55
+ 403 000c 06       		.uleb128 0x6
+ 404 000d 11       		.uleb128 0x11
+ 405 000e 01       		.uleb128 0x1
+ 406 000f 52       		.uleb128 0x52
+ 407 0010 01       		.uleb128 0x1
+ 408 0011 10       		.uleb128 0x10
+ 409 0012 06       		.uleb128 0x6
+ 410 0013 00       		.byte	0
+ 411 0014 00       		.byte	0
+ 412 0015 02       		.uleb128 0x2
+ 413 0016 24       		.uleb128 0x24
+ 414 0017 00       		.byte	0
+ 415 0018 0B       		.uleb128 0xb
+ 416 0019 0B       		.uleb128 0xb
+ 417 001a 3E       		.uleb128 0x3e
+ 418 001b 0B       		.uleb128 0xb
+ 419 001c 03       		.uleb128 0x3
+ 420 001d 0E       		.uleb128 0xe
+ 421 001e 00       		.byte	0
+ 422 001f 00       		.byte	0
+ 423 0020 03       		.uleb128 0x3
+ 424 0021 16       		.uleb128 0x16
+ 425 0022 00       		.byte	0
+ 426 0023 03       		.uleb128 0x3
+ 427 0024 0E       		.uleb128 0xe
+ 428 0025 3A       		.uleb128 0x3a
+ 429 0026 0B       		.uleb128 0xb
+ 430 0027 3B       		.uleb128 0x3b
+ 431 0028 0B       		.uleb128 0xb
+ 432 0029 49       		.uleb128 0x49
+ 433 002a 13       		.uleb128 0x13
+ 434 002b 00       		.byte	0
+ 435 002c 00       		.byte	0
+ 436 002d 04       		.uleb128 0x4
+ 437 002e 24       		.uleb128 0x24
+ 438 002f 00       		.byte	0
+ 439 0030 0B       		.uleb128 0xb
+ 440 0031 0B       		.uleb128 0xb
+ 441 0032 3E       		.uleb128 0x3e
+ 442 0033 0B       		.uleb128 0xb
+ 443 0034 03       		.uleb128 0x3
+ 444 0035 08       		.uleb128 0x8
+ 445 0036 00       		.byte	0
+ 446 0037 00       		.byte	0
+ 447 0038 05       		.uleb128 0x5
+ 448 0039 0F       		.uleb128 0xf
+ 449 003a 00       		.byte	0
+ 450 003b 0B       		.uleb128 0xb
+ 451 003c 0B       		.uleb128 0xb
+ 452 003d 49       		.uleb128 0x49
+ 453 003e 13       		.uleb128 0x13
+ 454 003f 00       		.byte	0
+ 455 0040 00       		.byte	0
+ 456 0041 06       		.uleb128 0x6
+ 457 0042 26       		.uleb128 0x26
+ 458 0043 00       		.byte	0
+ARM GAS  C:\Users\CHUCK~1.ERH\AppData\Local\Temp\ccVgEDCI.s 			page 10
+
+
+ 459 0044 49       		.uleb128 0x49
+ 460 0045 13       		.uleb128 0x13
+ 461 0046 00       		.byte	0
+ 462 0047 00       		.byte	0
+ 463 0048 07       		.uleb128 0x7
+ 464 0049 2E       		.uleb128 0x2e
+ 465 004a 01       		.byte	0x1
+ 466 004b 3F       		.uleb128 0x3f
+ 467 004c 0C       		.uleb128 0xc
+ 468 004d 03       		.uleb128 0x3
+ 469 004e 0E       		.uleb128 0xe
+ 470 004f 3A       		.uleb128 0x3a
+ 471 0050 0B       		.uleb128 0xb
+ 472 0051 3B       		.uleb128 0x3b
+ 473 0052 0B       		.uleb128 0xb
+ 474 0053 49       		.uleb128 0x49
+ 475 0054 13       		.uleb128 0x13
+ 476 0055 11       		.uleb128 0x11
+ 477 0056 01       		.uleb128 0x1
+ 478 0057 12       		.uleb128 0x12
+ 479 0058 01       		.uleb128 0x1
+ 480 0059 40       		.uleb128 0x40
+ 481 005a 06       		.uleb128 0x6
+ 482 005b 9742     		.uleb128 0x2117
+ 483 005d 0C       		.uleb128 0xc
+ 484 005e 01       		.uleb128 0x1
+ 485 005f 13       		.uleb128 0x13
+ 486 0060 00       		.byte	0
+ 487 0061 00       		.byte	0
+ 488 0062 08       		.uleb128 0x8
+ 489 0063 34       		.uleb128 0x34
+ 490 0064 00       		.byte	0
+ 491 0065 03       		.uleb128 0x3
+ 492 0066 0E       		.uleb128 0xe
+ 493 0067 3A       		.uleb128 0x3a
+ 494 0068 0B       		.uleb128 0xb
+ 495 0069 3B       		.uleb128 0x3b
+ 496 006a 0B       		.uleb128 0xb
+ 497 006b 49       		.uleb128 0x49
+ 498 006c 13       		.uleb128 0x13
+ 499 006d 02       		.uleb128 0x2
+ 500 006e 06       		.uleb128 0x6
+ 501 006f 00       		.byte	0
+ 502 0070 00       		.byte	0
+ 503 0071 09       		.uleb128 0x9
+ 504 0072 898201   		.uleb128 0x4109
+ 505 0075 00       		.byte	0
+ 506 0076 11       		.uleb128 0x11
+ 507 0077 01       		.uleb128 0x1
+ 508 0078 31       		.uleb128 0x31
+ 509 0079 13       		.uleb128 0x13
+ 510 007a 00       		.byte	0
+ 511 007b 00       		.byte	0
+ 512 007c 0A       		.uleb128 0xa
+ 513 007d 898201   		.uleb128 0x4109
+ 514 0080 01       		.byte	0x1
+ 515 0081 11       		.uleb128 0x11
+ARM GAS  C:\Users\CHUCK~1.ERH\AppData\Local\Temp\ccVgEDCI.s 			page 11
+
+
+ 516 0082 01       		.uleb128 0x1
+ 517 0083 31       		.uleb128 0x31
+ 518 0084 13       		.uleb128 0x13
+ 519 0085 01       		.uleb128 0x1
+ 520 0086 13       		.uleb128 0x13
+ 521 0087 00       		.byte	0
+ 522 0088 00       		.byte	0
+ 523 0089 0B       		.uleb128 0xb
+ 524 008a 8A8201   		.uleb128 0x410a
+ 525 008d 00       		.byte	0
+ 526 008e 02       		.uleb128 0x2
+ 527 008f 0A       		.uleb128 0xa
+ 528 0090 9142     		.uleb128 0x2111
+ 529 0092 0A       		.uleb128 0xa
+ 530 0093 00       		.byte	0
+ 531 0094 00       		.byte	0
+ 532 0095 0C       		.uleb128 0xc
+ 533 0096 898201   		.uleb128 0x4109
+ 534 0099 01       		.byte	0x1
+ 535 009a 11       		.uleb128 0x11
+ 536 009b 01       		.uleb128 0x1
+ 537 009c 31       		.uleb128 0x31
+ 538 009d 13       		.uleb128 0x13
+ 539 009e 00       		.byte	0
+ 540 009f 00       		.byte	0
+ 541 00a0 0D       		.uleb128 0xd
+ 542 00a1 34       		.uleb128 0x34
+ 543 00a2 00       		.byte	0
+ 544 00a3 03       		.uleb128 0x3
+ 545 00a4 0E       		.uleb128 0xe
+ 546 00a5 3A       		.uleb128 0x3a
+ 547 00a6 0B       		.uleb128 0xb
+ 548 00a7 3B       		.uleb128 0x3b
+ 549 00a8 05       		.uleb128 0x5
+ 550 00a9 49       		.uleb128 0x49
+ 551 00aa 13       		.uleb128 0x13
+ 552 00ab 3F       		.uleb128 0x3f
+ 553 00ac 0C       		.uleb128 0xc
+ 554 00ad 3C       		.uleb128 0x3c
+ 555 00ae 0C       		.uleb128 0xc
+ 556 00af 00       		.byte	0
+ 557 00b0 00       		.byte	0
+ 558 00b1 0E       		.uleb128 0xe
+ 559 00b2 35       		.uleb128 0x35
+ 560 00b3 00       		.byte	0
+ 561 00b4 49       		.uleb128 0x49
+ 562 00b5 13       		.uleb128 0x13
+ 563 00b6 00       		.byte	0
+ 564 00b7 00       		.byte	0
+ 565 00b8 0F       		.uleb128 0xf
+ 566 00b9 2E       		.uleb128 0x2e
+ 567 00ba 00       		.byte	0
+ 568 00bb 3F       		.uleb128 0x3f
+ 569 00bc 0C       		.uleb128 0xc
+ 570 00bd 03       		.uleb128 0x3
+ 571 00be 0E       		.uleb128 0xe
+ 572 00bf 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\CHUCK~1.ERH\AppData\Local\Temp\ccVgEDCI.s 			page 12
+
+
+ 573 00c0 0B       		.uleb128 0xb
+ 574 00c1 3B       		.uleb128 0x3b
+ 575 00c2 0B       		.uleb128 0xb
+ 576 00c3 27       		.uleb128 0x27
+ 577 00c4 0C       		.uleb128 0xc
+ 578 00c5 3C       		.uleb128 0x3c
+ 579 00c6 0C       		.uleb128 0xc
+ 580 00c7 00       		.byte	0
+ 581 00c8 00       		.byte	0
+ 582 00c9 10       		.uleb128 0x10
+ 583 00ca 2E       		.uleb128 0x2e
+ 584 00cb 01       		.byte	0x1
+ 585 00cc 3F       		.uleb128 0x3f
+ 586 00cd 0C       		.uleb128 0xc
+ 587 00ce 03       		.uleb128 0x3
+ 588 00cf 0E       		.uleb128 0xe
+ 589 00d0 3A       		.uleb128 0x3a
+ 590 00d1 0B       		.uleb128 0xb
+ 591 00d2 3B       		.uleb128 0x3b
+ 592 00d3 05       		.uleb128 0x5
+ 593 00d4 27       		.uleb128 0x27
+ 594 00d5 0C       		.uleb128 0xc
+ 595 00d6 49       		.uleb128 0x49
+ 596 00d7 13       		.uleb128 0x13
+ 597 00d8 3C       		.uleb128 0x3c
+ 598 00d9 0C       		.uleb128 0xc
+ 599 00da 01       		.uleb128 0x1
+ 600 00db 13       		.uleb128 0x13
+ 601 00dc 00       		.byte	0
+ 602 00dd 00       		.byte	0
+ 603 00de 11       		.uleb128 0x11
+ 604 00df 05       		.uleb128 0x5
+ 605 00e0 00       		.byte	0
+ 606 00e1 49       		.uleb128 0x49
+ 607 00e2 13       		.uleb128 0x13
+ 608 00e3 00       		.byte	0
+ 609 00e4 00       		.byte	0
+ 610 00e5 12       		.uleb128 0x12
+ 611 00e6 2E       		.uleb128 0x2e
+ 612 00e7 01       		.byte	0x1
+ 613 00e8 3F       		.uleb128 0x3f
+ 614 00e9 0C       		.uleb128 0xc
+ 615 00ea 03       		.uleb128 0x3
+ 616 00eb 0E       		.uleb128 0xe
+ 617 00ec 3A       		.uleb128 0x3a
+ 618 00ed 0B       		.uleb128 0xb
+ 619 00ee 3B       		.uleb128 0x3b
+ 620 00ef 05       		.uleb128 0x5
+ 621 00f0 27       		.uleb128 0x27
+ 622 00f1 0C       		.uleb128 0xc
+ 623 00f2 3C       		.uleb128 0x3c
+ 624 00f3 0C       		.uleb128 0xc
+ 625 00f4 01       		.uleb128 0x1
+ 626 00f5 13       		.uleb128 0x13
+ 627 00f6 00       		.byte	0
+ 628 00f7 00       		.byte	0
+ 629 00f8 13       		.uleb128 0x13
+ARM GAS  C:\Users\CHUCK~1.ERH\AppData\Local\Temp\ccVgEDCI.s 			page 13
+
+
+ 630 00f9 2E       		.uleb128 0x2e
+ 631 00fa 01       		.byte	0x1
+ 632 00fb 3F       		.uleb128 0x3f
+ 633 00fc 0C       		.uleb128 0xc
+ 634 00fd 03       		.uleb128 0x3
+ 635 00fe 0E       		.uleb128 0xe
+ 636 00ff 3A       		.uleb128 0x3a
+ 637 0100 0B       		.uleb128 0xb
+ 638 0101 3B       		.uleb128 0x3b
+ 639 0102 0B       		.uleb128 0xb
+ 640 0103 27       		.uleb128 0x27
+ 641 0104 0C       		.uleb128 0xc
+ 642 0105 3C       		.uleb128 0x3c
+ 643 0106 0C       		.uleb128 0xc
+ 644 0107 01       		.uleb128 0x1
+ 645 0108 13       		.uleb128 0x13
+ 646 0109 00       		.byte	0
+ 647 010a 00       		.byte	0
+ 648 010b 14       		.uleb128 0x14
+ 649 010c 2E       		.uleb128 0x2e
+ 650 010d 01       		.byte	0x1
+ 651 010e 3F       		.uleb128 0x3f
+ 652 010f 0C       		.uleb128 0xc
+ 653 0110 03       		.uleb128 0x3
+ 654 0111 0E       		.uleb128 0xe
+ 655 0112 3A       		.uleb128 0x3a
+ 656 0113 0B       		.uleb128 0xb
+ 657 0114 3B       		.uleb128 0x3b
+ 658 0115 05       		.uleb128 0x5
+ 659 0116 27       		.uleb128 0x27
+ 660 0117 0C       		.uleb128 0xc
+ 661 0118 3C       		.uleb128 0x3c
+ 662 0119 0C       		.uleb128 0xc
+ 663 011a 00       		.byte	0
+ 664 011b 00       		.byte	0
+ 665 011c 00       		.byte	0
+ 666              		.section	.debug_loc,"",%progbits
+ 667              	.Ldebug_loc0:
+ 668              	.LLST0:
+ 669 0000 00000000 		.4byte	.LFB56
+ 670 0004 02000000 		.4byte	.LCFI0
+ 671 0008 0200     		.2byte	0x2
+ 672 000a 7D       		.byte	0x7d
+ 673 000b 00       		.sleb128 0
+ 674 000c 02000000 		.4byte	.LCFI0
+ 675 0010 40000000 		.4byte	.LFE56
+ 676 0014 0200     		.2byte	0x2
+ 677 0016 7D       		.byte	0x7d
+ 678 0017 08       		.sleb128 8
+ 679 0018 00000000 		.4byte	0
+ 680 001c 00000000 		.4byte	0
+ 681              	.LLST1:
+ 682 0020 14000000 		.4byte	.LVL3
+ 683 0024 19000000 		.4byte	.LVL4-1
+ 684 0028 0100     		.2byte	0x1
+ 685 002a 50       		.byte	0x50
+ 686 002b 19000000 		.4byte	.LVL4-1
+ARM GAS  C:\Users\CHUCK~1.ERH\AppData\Local\Temp\ccVgEDCI.s 			page 14
+
+
+ 687 002f 40000000 		.4byte	.LFE56
+ 688 0033 0100     		.2byte	0x1
+ 689 0035 54       		.byte	0x54
+ 690 0036 00000000 		.4byte	0
+ 691 003a 00000000 		.4byte	0
+ 692              		.section	.debug_aranges,"",%progbits
+ 693 0000 1C000000 		.4byte	0x1c
+ 694 0004 0200     		.2byte	0x2
+ 695 0006 00000000 		.4byte	.Ldebug_info0
+ 696 000a 04       		.byte	0x4
+ 697 000b 00       		.byte	0
+ 698 000c 0000     		.2byte	0
+ 699 000e 0000     		.2byte	0
+ 700 0010 00000000 		.4byte	.LFB56
+ 701 0014 40000000 		.4byte	.LFE56-.LFB56
+ 702 0018 00000000 		.4byte	0
+ 703 001c 00000000 		.4byte	0
+ 704              		.section	.debug_ranges,"",%progbits
+ 705              	.Ldebug_ranges0:
+ 706 0000 00000000 		.4byte	.LFB56
+ 707 0004 40000000 		.4byte	.LFE56
+ 708 0008 00000000 		.4byte	0
+ 709 000c 00000000 		.4byte	0
+ 710              		.section	.debug_line,"",%progbits
+ 711              	.Ldebug_line0:
+ 712 0000 3A010000 		.section	.debug_str,"MS",%progbits,1
+ 712      02001901 
+ 712      00000201 
+ 712      FB0E0D00 
+ 712      01010101 
+ 713              	.LASF25:
+ 714 0000 433A5C55 		.ascii	"C:\\Users\\chuck.erhardt\\Documents\\PSoC Creator\\"
+ 714      73657273 
+ 714      5C636875 
+ 714      636B2E65 
+ 714      72686172 
+ 715 002e 57353130 		.ascii	"W5100_Example1\\W5100_Example1-FreeSoC_Explorer.cyd"
+ 715      305F4578 
+ 715      616D706C 
+ 715      65315C57 
+ 715      35313030 
+ 716 0060 736E00   		.ascii	"sn\000"
+ 717              	.LASF22:
+ 718 0063 57353130 		.ascii	"W5100_TcpDisconnect\000"
+ 718      305F5463 
+ 718      70446973 
+ 718      636F6E6E 
+ 718      65637400 
+ 719              	.LASF13:
+ 720 0077 666C6F61 		.ascii	"float\000"
+ 720      7400
+ 721              	.LASF1:
+ 722 007d 756E7369 		.ascii	"unsigned char\000"
+ 722      676E6564 
+ 722      20636861 
+ 722      7200
+ 723              	.LASF24:
+ARM GAS  C:\Users\CHUCK~1.ERH\AppData\Local\Temp\ccVgEDCI.s 			page 15
+
+
+ 724 008b 2E5C6D61 		.ascii	".\\main.c\000"
+ 724      696E2E63 
+ 724      00
+ 725              	.LASF5:
+ 726 0094 6C6F6E67 		.ascii	"long unsigned int\000"
+ 726      20756E73 
+ 726      69676E65 
+ 726      6420696E 
+ 726      7400
+ 727              	.LASF3:
+ 728 00a6 73686F72 		.ascii	"short unsigned int\000"
+ 728      7420756E 
+ 728      7369676E 
+ 728      65642069 
+ 728      6E7400
+ 729              	.LASF28:
+ 730 00b9 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 730      52784275 
+ 730      66666572 
+ 730      00
+ 731              	.LASF14:
+ 732 00c6 646F7562 		.ascii	"double\000"
+ 732      6C6500
+ 733              	.LASF26:
+ 734 00cd 6D61696E 		.ascii	"main\000"
+ 734      00
+ 735              	.LASF11:
+ 736 00d2 75696E74 		.ascii	"uint16\000"
+ 736      313600
+ 737              	.LASF27:
+ 738 00d9 74637053 		.ascii	"tcpSocket\000"
+ 738      6F636B65 
+ 738      7400
+ 739              	.LASF12:
+ 740 00e3 75696E74 		.ascii	"uint32\000"
+ 740      333200
+ 741              	.LASF8:
+ 742 00ea 756E7369 		.ascii	"unsigned int\000"
+ 742      676E6564 
+ 742      20696E74 
+ 742      00
+ 743              	.LASF30:
+ 744 00f7 57353130 		.ascii	"W5100_SocketClose\000"
+ 744      305F536F 
+ 744      636B6574 
+ 744      436C6F73 
+ 744      6500
+ 745              	.LASF7:
+ 746 0109 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 746      206C6F6E 
+ 746      6720756E 
+ 746      7369676E 
+ 746      65642069 
+ 747              	.LASF19:
+ 748 0120 57353130 		.ascii	"W5100_TcpStartServerWait\000"
+ 748      305F5463 
+ 748      70537461 
+ARM GAS  C:\Users\CHUCK~1.ERH\AppData\Local\Temp\ccVgEDCI.s 			page 16
+
+
+ 748      72745365 
+ 748      72766572 
+ 749              	.LASF17:
+ 750 0139 5350494D 		.ascii	"SPIM_Start\000"
+ 750      5F537461 
+ 750      727400
+ 751              	.LASF29:
+ 752 0144 57353130 		.ascii	"W5100_TcpOpen\000"
+ 752      305F5463 
+ 752      704F7065 
+ 752      6E00
+ 753              	.LASF9:
+ 754 0152 696E7433 		.ascii	"int32_t\000"
+ 754      325F7400 
+ 755              	.LASF16:
+ 756 015a 73697A65 		.ascii	"sizetype\000"
+ 756      74797065 
+ 756      00
+ 757              	.LASF6:
+ 758 0163 6C6F6E67 		.ascii	"long long int\000"
+ 758      206C6F6E 
+ 758      6720696E 
+ 758      7400
+ 759              	.LASF15:
+ 760 0171 63686172 		.ascii	"char\000"
+ 760      00
+ 761              	.LASF20:
+ 762 0176 57353130 		.ascii	"W5100_TcpPrint\000"
+ 762      305F5463 
+ 762      70507269 
+ 762      6E7400
+ 763              	.LASF2:
+ 764 0185 73686F72 		.ascii	"short int\000"
+ 764      7420696E 
+ 764      7400
+ 765              	.LASF10:
+ 766 018f 75696E74 		.ascii	"uint8\000"
+ 766      3800
+ 767              	.LASF23:
+ 768 0195 474E5520 		.ascii	"GNU C 4.7.3 20130312 (release) [ARM/embedded-4_7-br"
+ 768      4320342E 
+ 768      372E3320 
+ 768      32303133 
+ 768      30333132 
+ 769 01c8 616E6368 		.ascii	"anch revision 196615]\000"
+ 769      20726576 
+ 769      6973696F 
+ 769      6E203139 
+ 769      36363135 
+ 770              	.LASF4:
+ 771 01de 6C6F6E67 		.ascii	"long int\000"
+ 771      20696E74 
+ 771      00
+ 772              	.LASF0:
+ 773 01e7 7369676E 		.ascii	"signed char\000"
+ 773      65642063 
+ 773      68617200 
+ARM GAS  C:\Users\CHUCK~1.ERH\AppData\Local\Temp\ccVgEDCI.s 			page 17
+
+
+ 774              	.LASF18:
+ 775 01f3 57353130 		.ascii	"W5100_Start\000"
+ 775      305F5374 
+ 775      61727400 
+ 776              	.LASF21:
+ 777 01ff 43794465 		.ascii	"CyDelay\000"
+ 777      6C617900 
+ 778              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.7.3 20130312 (release) [ARM/embedded-4_7-br

@@ -1,0 +1,71 @@
+Last Modified Date & Time: 06/27/2014 16:49:30
+
+Project : W5100_Example1-FreeSoC_Explorer
+		Schematic : TopDesign
+
+		ETH_CSN_1	v 1.90tv 2.0
+		ETH_SCLK_1	v 1.90tv 2.0
+		ETH_MOSI_1	v 1.90tv 2.0
+		ETH_MISO_1	v 1.90tv 2.0
+
+Project : W5100_Exampl 1-PSoC_Pioneer
+		Schematic : TopDesign
+
+		SPI	v 1.10tv 1.20
+
+Project : E2ForLife_W5100
+		Schematic : E2ForLife_W5100_v1_0
+
+		SPI_1	v 1.10tv 1.20
+
+		Schematic : E2ForLife_W5100_v1_0
+
+		ETH_MISO_1	v 1.90tv 2.0
+		ETH_MOSI_1	v 1.90tv 2.0
+		ETH_SCLK_1	v 1.90tv 2.0
+		ETH_CSN_1	v 1.90tv 2.0
+
+		Schematic : E2ForLife_W5100_v1_0
+
+		ETH_MISO_1	v 1.90tv 2.0
+		ETH_MOSI_1	v 1.90tv 2.0
+		ETH_SCLK_1	v 1.90tv 2.0
+		ETH_CSN_1	v 1.90tv 2.0
+
+		Schematic : E2ForLife_W5100_v1_1
+
+		SPI_1	v 1.10tv 1.20
+
+		Schematic : E2ForLife_W5100_v1_1
+
+		ETH_MISO_1	v 1.90tv 2.0
+		ETH_MOSI_1	v 1.90tv 2.0
+		ETH_SCLK_1	v 1.90tv 2.0
+		ETH_CSN_1	v 1.90tv 2.0
+
+		Schematic : E2ForLife_W5100_v1_1
+
+		ETH_MISO_1	v 1.90tv 2.0
+		ETH_MOSI_1	v 1.90tv 2.0
+		ETH_SCLK_1	v 1.90tv 2.0
+		ETH_CSN_1	v 1.90tv 2.0
+
+		Schematic : E2ForLife_W5100_v1_2
+
+		SPI_1	v 1.10tv 1.20
+
+		Schematic : E2ForLife_W5100_v1_2
+
+		ETH_MISO_1	v 1.90tv 2.0
+		ETH_MOSI_1	v 1.90tv 2.0
+		ETH_SCLK_1	v 1.90tv 2.0
+		ETH_CSN_1	v 1.90tv 2.0
+
+		Schematic : E2ForLife_W5100_v1_2
+
+		ETH_MISO_1	v 1.90tv 2.0
+		ETH_MOSI_1	v 1.90tv 2.0
+		ETH_SCLK_1	v 1.90tv 2.0
+		ETH_CSN_1	v 1.90tv 2.0
+
+

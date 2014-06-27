@@ -1,0 +1,532 @@
+ARM GAS  C:\Users\CHUCK~1.ERH\AppData\Local\Temp\cceXLlop.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 6
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"main.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.rodata
+  18              		.align	2
+  19              	.LC0:
+  20 0000 1B5B324A 		.ascii	"\033[2JHello From E2ForLife.com\015\012\000"
+  20      48656C6C 
+  20      6F204672 
+  20      6F6D2045 
+  20      32466F72 
+  21 001f 00       		.section	.text.main,"ax",%progbits
+  22              		.align	2
+  23              		.global	main
+  24              		.code	16
+  25              		.thumb_func
+  26              		.type	main, %function
+  27              	main:
+  28              	.LFB33:
+  29              		.file 1 ".\\main.c"
+   1:.\main.c      **** /* ========================================
+   2:.\main.c      ****  *
+   3:.\main.c      ****  * Copyright YOUR COMPANY, THE YEAR
+   4:.\main.c      ****  * All Rights Reserved
+   5:.\main.c      ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:.\main.c      ****  *
+   7:.\main.c      ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:.\main.c      ****  * WHICH IS THE PROPERTY OF your company.
+   9:.\main.c      ****  *
+  10:.\main.c      ****  * ========================================
+  11:.\main.c      **** */
+  12:.\main.c      **** #include <project.h>
+  13:.\main.c      **** 
+  14:.\main.c      **** int main()
+  15:.\main.c      **** {
+  30              		.loc 1 15 0
+  31              		.cfi_startproc
+  32 0000 90B5     		push	{r4, r7, lr}
+  33              	.LCFI0:
+  34              		.cfi_def_cfa_offset 12
+  35              		.cfi_offset 4, -12
+  36              		.cfi_offset 7, -8
+  37              		.cfi_offset 14, -4
+  38 0002 83B0     		sub	sp, sp, #12
+ARM GAS  C:\Users\CHUCK~1.ERH\AppData\Local\Temp\cceXLlop.s 			page 2
+
+
+  39              	.LCFI1:
+  40              		.cfi_def_cfa_offset 24
+  41 0004 00AF     		add	r7, sp, #0
+  42              	.LCFI2:
+  43              		.cfi_def_cfa_register 7
+  16:.\main.c      **** 	uint8 tcpSocket;
+  17:.\main.c      **** 	/*
+  18:.\main.c      **** 	 * First the SPI perepheral must be initialized so that the
+  19:.\main.c      **** 	 * W5100 driver has hardware to use for the chip initialization
+  20:.\main.c      **** 	 * that will occur next
+  21:.\main.c      **** 	 */
+  22:.\main.c      **** 	SPI_Start();
+  44              		.loc 1 22 0
+  45 0006 FFF7FEFF 		bl	SPI_Start
+  23:.\main.c      ****   	/*
+  24:.\main.c      **** 	 * The next section initialized the W5100 to default settings
+  25:.\main.c      **** 	 * setup in the component confiuration dialog.
+  26:.\main.c      **** 	 */
+  27:.\main.c      **** 	W5100_Start();
+  46              		.loc 1 27 0
+  47 000a FFF7FEFF 		bl	W5100_Start
+  48 000e 00E0     		b	.L3
+  49              	.L4:
+  28:.\main.c      ****     for(;;)
+  29:.\main.c      ****     {
+  30:.\main.c      ****         /*
+  31:.\main.c      **** 		 * Now that the W5100 is initialized and configured,
+  32:.\main.c      **** 		 * open a socket, then start a server and wait for connections
+  33:.\main.c      **** 		 */
+  34:.\main.c      **** 		tcpSocket = W5100_TcpOpen( 23 );
+  35:.\main.c      **** 		/*
+  36:.\main.c      **** 		 * If the socket was opened the socket number will be 0 - 3
+  37:.\main.c      **** 		 * to reflect the socket that was used within the W5100
+  38:.\main.c      **** 		 */
+  39:.\main.c      **** 		if (tcpSocket < 4) {
+  40:.\main.c      **** 			/* Wait for server connections */
+  41:.\main.c      **** 			W5100_TcpStartServerWait( tcpSocket );
+  42:.\main.c      **** 			/* Send the string to the remote terminal */
+  43:.\main.c      **** 			W5100_TcpPrint(tcpSocket,"\x1b[2JHello From E2ForLife.com\r\n");
+  44:.\main.c      **** 			/* Wait for string to transmit over the network before closing */
+  45:.\main.c      **** 			CyDelay(10);
+  46:.\main.c      **** 			/* Disconnect from client (drop connection) */
+  47:.\main.c      **** 			W5100_TcpDisconnect(tcpSocket);
+  48:.\main.c      **** 			/* Close the socket */
+  49:.\main.c      **** 			CyDelay(50);
+  50:.\main.c      **** 			W5100_SocketClose(tcpSocket);
+  51:.\main.c      **** 		}
+  52:.\main.c      ****     }
+  50              		.loc 1 52 0
+  51 0010 C046     		mov	r8, r8
+  52              	.L3:
+  34:.\main.c      **** 		tcpSocket = W5100_TcpOpen( 23 );
+  53              		.loc 1 34 0
+  54 0012 FC1D     		add	r4, r7, #7
+  55 0014 1720     		mov	r0, #23
+  56 0016 FFF7FEFF 		bl	W5100_TcpOpen
+  57 001a 031C     		mov	r3, r0
+ARM GAS  C:\Users\CHUCK~1.ERH\AppData\Local\Temp\cceXLlop.s 			page 3
+
+
+  58 001c 2370     		strb	r3, [r4]
+  39:.\main.c      **** 		if (tcpSocket < 4) {
+  59              		.loc 1 39 0
+  60 001e FB1D     		add	r3, r7, #7
+  61 0020 1B78     		ldrb	r3, [r3]
+  62 0022 032B     		cmp	r3, #3
+  63 0024 F4D8     		bhi	.L4
+  41:.\main.c      **** 			W5100_TcpStartServerWait( tcpSocket );
+  64              		.loc 1 41 0
+  65 0026 FB1D     		add	r3, r7, #7
+  66 0028 1B78     		ldrb	r3, [r3]
+  67 002a 181C     		mov	r0, r3
+  68 002c FFF7FEFF 		bl	W5100_TcpStartServerWait
+  43:.\main.c      **** 			W5100_TcpPrint(tcpSocket,"\x1b[2JHello From E2ForLife.com\r\n");
+  69              		.loc 1 43 0
+  70 0030 FB1D     		add	r3, r7, #7
+  71 0032 1A78     		ldrb	r2, [r3]
+  72 0034 0A4B     		ldr	r3, .L5
+  73 0036 101C     		mov	r0, r2
+  74 0038 191C     		mov	r1, r3
+  75 003a FFF7FEFF 		bl	W5100_TcpPrint
+  45:.\main.c      **** 			CyDelay(10);
+  76              		.loc 1 45 0
+  77 003e 0A20     		mov	r0, #10
+  78 0040 FFF7FEFF 		bl	CyDelay
+  47:.\main.c      **** 			W5100_TcpDisconnect(tcpSocket);
+  79              		.loc 1 47 0
+  80 0044 FB1D     		add	r3, r7, #7
+  81 0046 1B78     		ldrb	r3, [r3]
+  82 0048 181C     		mov	r0, r3
+  83 004a FFF7FEFF 		bl	W5100_TcpDisconnect
+  49:.\main.c      **** 			CyDelay(50);
+  84              		.loc 1 49 0
+  85 004e 3220     		mov	r0, #50
+  86 0050 FFF7FEFF 		bl	CyDelay
+  50:.\main.c      **** 			W5100_SocketClose(tcpSocket);
+  87              		.loc 1 50 0
+  88 0054 FB1D     		add	r3, r7, #7
+  89 0056 1B78     		ldrb	r3, [r3]
+  90 0058 181C     		mov	r0, r3
+  91 005a FFF7FEFF 		bl	W5100_SocketClose
+  92              		.loc 1 52 0
+  93 005e D7E7     		b	.L4
+  94              	.L6:
+  95              		.align	2
+  96              	.L5:
+  97 0060 00000000 		.word	.LC0
+  98              		.cfi_endproc
+  99              	.LFE33:
+ 100              		.size	main, .-main
+ 101              		.text
+ 102              	.Letext0:
+ 103              		.file 2 "./Generated_Source/PSoC4/cytypes.h"
+ 104              		.section	.debug_info,"",%progbits
+ 105              	.Ldebug_info0:
+ 106 0000 BB000000 		.4byte	0xbb
+ 107 0004 0200     		.2byte	0x2
+ARM GAS  C:\Users\CHUCK~1.ERH\AppData\Local\Temp\cceXLlop.s 			page 4
+
+
+ 108 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 109 000a 04       		.byte	0x4
+ 110 000b 01       		.uleb128 0x1
+ 111 000c 89000000 		.4byte	.LASF13
+ 112 0010 01       		.byte	0x1
+ 113 0011 53010000 		.4byte	.LASF14
+ 114 0015 1B000000 		.4byte	.LASF15
+ 115 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 116 001d 00000000 		.4byte	0
+ 117 0021 00000000 		.4byte	0
+ 118 0025 00000000 		.4byte	.Ldebug_line0
+ 119 0029 02       		.uleb128 0x2
+ 120 002a 01       		.byte	0x1
+ 121 002b 06       		.byte	0x6
+ 122 002c 41010000 		.4byte	.LASF0
+ 123 0030 02       		.uleb128 0x2
+ 124 0031 01       		.byte	0x1
+ 125 0032 08       		.byte	0x8
+ 126 0033 01010000 		.4byte	.LASF1
+ 127 0037 02       		.uleb128 0x2
+ 128 0038 02       		.byte	0x2
+ 129 0039 05       		.byte	0x5
+ 130 003a 1D010000 		.4byte	.LASF2
+ 131 003e 02       		.uleb128 0x2
+ 132 003f 02       		.byte	0x2
+ 133 0040 07       		.byte	0x7
+ 134 0041 2E010000 		.4byte	.LASF3
+ 135 0045 02       		.uleb128 0x2
+ 136 0046 04       		.byte	0x4
+ 137 0047 05       		.byte	0x5
+ 138 0048 14010000 		.4byte	.LASF4
+ 139 004c 02       		.uleb128 0x2
+ 140 004d 04       		.byte	0x4
+ 141 004e 07       		.byte	0x7
+ 142 004f D8000000 		.4byte	.LASF5
+ 143 0053 02       		.uleb128 0x2
+ 144 0054 08       		.byte	0x8
+ 145 0055 05       		.byte	0x5
+ 146 0056 00000000 		.4byte	.LASF6
+ 147 005a 02       		.uleb128 0x2
+ 148 005b 08       		.byte	0x8
+ 149 005c 07       		.byte	0x7
+ 150 005d EA000000 		.4byte	.LASF7
+ 151 0061 03       		.uleb128 0x3
+ 152 0062 04       		.byte	0x4
+ 153 0063 05       		.byte	0x5
+ 154 0064 696E7400 		.ascii	"int\000"
+ 155 0068 02       		.uleb128 0x2
+ 156 0069 04       		.byte	0x4
+ 157 006a 07       		.byte	0x7
+ 158 006b 0E000000 		.4byte	.LASF8
+ 159 006f 04       		.uleb128 0x4
+ 160 0070 D2000000 		.4byte	.LASF16
+ 161 0074 02       		.byte	0x2
+ 162 0075 5B       		.byte	0x5b
+ 163 0076 30000000 		.4byte	0x30
+ 164 007a 02       		.uleb128 0x2
+ARM GAS  C:\Users\CHUCK~1.ERH\AppData\Local\Temp\cceXLlop.s 			page 5
+
+
+ 165 007b 04       		.byte	0x4
+ 166 007c 04       		.byte	0x4
+ 167 007d 4D010000 		.4byte	.LASF9
+ 168 0081 02       		.uleb128 0x2
+ 169 0082 08       		.byte	0x8
+ 170 0083 04       		.byte	0x4
+ 171 0084 27010000 		.4byte	.LASF10
+ 172 0088 02       		.uleb128 0x2
+ 173 0089 01       		.byte	0x1
+ 174 008a 08       		.byte	0x8
+ 175 008b 0F010000 		.4byte	.LASF11
+ 176 008f 02       		.uleb128 0x2
+ 177 0090 04       		.byte	0x4
+ 178 0091 07       		.byte	0x7
+ 179 0092 5C010000 		.4byte	.LASF12
+ 180 0096 05       		.uleb128 0x5
+ 181 0097 01       		.byte	0x1
+ 182 0098 84000000 		.4byte	.LASF17
+ 183 009c 01       		.byte	0x1
+ 184 009d 0E       		.byte	0xe
+ 185 009e 61000000 		.4byte	0x61
+ 186 00a2 00000000 		.4byte	.LFB33
+ 187 00a6 64000000 		.4byte	.LFE33
+ 188 00aa 00000000 		.4byte	.LLST0
+ 189 00ae 01       		.byte	0x1
+ 190 00af 06       		.uleb128 0x6
+ 191 00b0 7A000000 		.4byte	.LASF18
+ 192 00b4 01       		.byte	0x1
+ 193 00b5 10       		.byte	0x10
+ 194 00b6 6F000000 		.4byte	0x6f
+ 195 00ba 02       		.byte	0x2
+ 196 00bb 91       		.byte	0x91
+ 197 00bc 6F       		.sleb128 -17
+ 198 00bd 00       		.byte	0
+ 199 00be 00       		.byte	0
+ 200              		.section	.debug_abbrev,"",%progbits
+ 201              	.Ldebug_abbrev0:
+ 202 0000 01       		.uleb128 0x1
+ 203 0001 11       		.uleb128 0x11
+ 204 0002 01       		.byte	0x1
+ 205 0003 25       		.uleb128 0x25
+ 206 0004 0E       		.uleb128 0xe
+ 207 0005 13       		.uleb128 0x13
+ 208 0006 0B       		.uleb128 0xb
+ 209 0007 03       		.uleb128 0x3
+ 210 0008 0E       		.uleb128 0xe
+ 211 0009 1B       		.uleb128 0x1b
+ 212 000a 0E       		.uleb128 0xe
+ 213 000b 55       		.uleb128 0x55
+ 214 000c 06       		.uleb128 0x6
+ 215 000d 11       		.uleb128 0x11
+ 216 000e 01       		.uleb128 0x1
+ 217 000f 52       		.uleb128 0x52
+ 218 0010 01       		.uleb128 0x1
+ 219 0011 10       		.uleb128 0x10
+ 220 0012 06       		.uleb128 0x6
+ 221 0013 00       		.byte	0
+ARM GAS  C:\Users\CHUCK~1.ERH\AppData\Local\Temp\cceXLlop.s 			page 6
+
+
+ 222 0014 00       		.byte	0
+ 223 0015 02       		.uleb128 0x2
+ 224 0016 24       		.uleb128 0x24
+ 225 0017 00       		.byte	0
+ 226 0018 0B       		.uleb128 0xb
+ 227 0019 0B       		.uleb128 0xb
+ 228 001a 3E       		.uleb128 0x3e
+ 229 001b 0B       		.uleb128 0xb
+ 230 001c 03       		.uleb128 0x3
+ 231 001d 0E       		.uleb128 0xe
+ 232 001e 00       		.byte	0
+ 233 001f 00       		.byte	0
+ 234 0020 03       		.uleb128 0x3
+ 235 0021 24       		.uleb128 0x24
+ 236 0022 00       		.byte	0
+ 237 0023 0B       		.uleb128 0xb
+ 238 0024 0B       		.uleb128 0xb
+ 239 0025 3E       		.uleb128 0x3e
+ 240 0026 0B       		.uleb128 0xb
+ 241 0027 03       		.uleb128 0x3
+ 242 0028 08       		.uleb128 0x8
+ 243 0029 00       		.byte	0
+ 244 002a 00       		.byte	0
+ 245 002b 04       		.uleb128 0x4
+ 246 002c 16       		.uleb128 0x16
+ 247 002d 00       		.byte	0
+ 248 002e 03       		.uleb128 0x3
+ 249 002f 0E       		.uleb128 0xe
+ 250 0030 3A       		.uleb128 0x3a
+ 251 0031 0B       		.uleb128 0xb
+ 252 0032 3B       		.uleb128 0x3b
+ 253 0033 0B       		.uleb128 0xb
+ 254 0034 49       		.uleb128 0x49
+ 255 0035 13       		.uleb128 0x13
+ 256 0036 00       		.byte	0
+ 257 0037 00       		.byte	0
+ 258 0038 05       		.uleb128 0x5
+ 259 0039 2E       		.uleb128 0x2e
+ 260 003a 01       		.byte	0x1
+ 261 003b 3F       		.uleb128 0x3f
+ 262 003c 0C       		.uleb128 0xc
+ 263 003d 03       		.uleb128 0x3
+ 264 003e 0E       		.uleb128 0xe
+ 265 003f 3A       		.uleb128 0x3a
+ 266 0040 0B       		.uleb128 0xb
+ 267 0041 3B       		.uleb128 0x3b
+ 268 0042 0B       		.uleb128 0xb
+ 269 0043 49       		.uleb128 0x49
+ 270 0044 13       		.uleb128 0x13
+ 271 0045 11       		.uleb128 0x11
+ 272 0046 01       		.uleb128 0x1
+ 273 0047 12       		.uleb128 0x12
+ 274 0048 01       		.uleb128 0x1
+ 275 0049 40       		.uleb128 0x40
+ 276 004a 06       		.uleb128 0x6
+ 277 004b 9642     		.uleb128 0x2116
+ 278 004d 0C       		.uleb128 0xc
+ARM GAS  C:\Users\CHUCK~1.ERH\AppData\Local\Temp\cceXLlop.s 			page 7
+
+
+ 279 004e 00       		.byte	0
+ 280 004f 00       		.byte	0
+ 281 0050 06       		.uleb128 0x6
+ 282 0051 34       		.uleb128 0x34
+ 283 0052 00       		.byte	0
+ 284 0053 03       		.uleb128 0x3
+ 285 0054 0E       		.uleb128 0xe
+ 286 0055 3A       		.uleb128 0x3a
+ 287 0056 0B       		.uleb128 0xb
+ 288 0057 3B       		.uleb128 0x3b
+ 289 0058 0B       		.uleb128 0xb
+ 290 0059 49       		.uleb128 0x49
+ 291 005a 13       		.uleb128 0x13
+ 292 005b 02       		.uleb128 0x2
+ 293 005c 0A       		.uleb128 0xa
+ 294 005d 00       		.byte	0
+ 295 005e 00       		.byte	0
+ 296 005f 00       		.byte	0
+ 297              		.section	.debug_loc,"",%progbits
+ 298              	.Ldebug_loc0:
+ 299              	.LLST0:
+ 300 0000 00000000 		.4byte	.LFB33
+ 301 0004 02000000 		.4byte	.LCFI0
+ 302 0008 0200     		.2byte	0x2
+ 303 000a 7D       		.byte	0x7d
+ 304 000b 00       		.sleb128 0
+ 305 000c 02000000 		.4byte	.LCFI0
+ 306 0010 04000000 		.4byte	.LCFI1
+ 307 0014 0200     		.2byte	0x2
+ 308 0016 7D       		.byte	0x7d
+ 309 0017 0C       		.sleb128 12
+ 310 0018 04000000 		.4byte	.LCFI1
+ 311 001c 06000000 		.4byte	.LCFI2
+ 312 0020 0200     		.2byte	0x2
+ 313 0022 7D       		.byte	0x7d
+ 314 0023 18       		.sleb128 24
+ 315 0024 06000000 		.4byte	.LCFI2
+ 316 0028 64000000 		.4byte	.LFE33
+ 317 002c 0200     		.2byte	0x2
+ 318 002e 77       		.byte	0x77
+ 319 002f 18       		.sleb128 24
+ 320 0030 00000000 		.4byte	0
+ 321 0034 00000000 		.4byte	0
+ 322              		.section	.debug_aranges,"",%progbits
+ 323 0000 1C000000 		.4byte	0x1c
+ 324 0004 0200     		.2byte	0x2
+ 325 0006 00000000 		.4byte	.Ldebug_info0
+ 326 000a 04       		.byte	0x4
+ 327 000b 00       		.byte	0
+ 328 000c 0000     		.2byte	0
+ 329 000e 0000     		.2byte	0
+ 330 0010 00000000 		.4byte	.LFB33
+ 331 0014 64000000 		.4byte	.LFE33-.LFB33
+ 332 0018 00000000 		.4byte	0
+ 333 001c 00000000 		.4byte	0
+ 334              		.section	.debug_ranges,"",%progbits
+ 335              	.Ldebug_ranges0:
+ARM GAS  C:\Users\CHUCK~1.ERH\AppData\Local\Temp\cceXLlop.s 			page 8
+
+
+ 336 0000 00000000 		.4byte	.LFB33
+ 337 0004 64000000 		.4byte	.LFE33
+ 338 0008 00000000 		.4byte	0
+ 339 000c 00000000 		.4byte	0
+ 340              		.section	.debug_line,"",%progbits
+ 341              	.Ldebug_line0:
+ 342 0000 6A000000 		.section	.debug_str,"MS",%progbits,1
+ 342      02004500 
+ 342      00000201 
+ 342      FB0E0D00 
+ 342      01010101 
+ 343              	.LASF6:
+ 344 0000 6C6F6E67 		.ascii	"long long int\000"
+ 344      206C6F6E 
+ 344      6720696E 
+ 344      7400
+ 345              	.LASF8:
+ 346 000e 756E7369 		.ascii	"unsigned int\000"
+ 346      676E6564 
+ 346      20696E74 
+ 346      00
+ 347              	.LASF15:
+ 348 001b 433A5C55 		.ascii	"C:\\Users\\chuck.erhardt\\Documents\\PSoC Creator\\"
+ 348      73657273 
+ 348      5C636875 
+ 348      636B2E65 
+ 348      72686172 
+ 349 0049 57353130 		.ascii	"W5100_Example1\\W5100_Exampl 1-PSoC_Pioneer.cydsn\000"
+ 349      305F4578 
+ 349      616D706C 
+ 349      65315C57 
+ 349      35313030 
+ 350              	.LASF18:
+ 351 007a 74637053 		.ascii	"tcpSocket\000"
+ 351      6F636B65 
+ 351      7400
+ 352              	.LASF17:
+ 353 0084 6D61696E 		.ascii	"main\000"
+ 353      00
+ 354              	.LASF13:
+ 355 0089 474E5520 		.ascii	"GNU C 4.7.3 20130312 (release) [ARM/embedded-4_7-br"
+ 355      4320342E 
+ 355      372E3320 
+ 355      32303133 
+ 355      30333132 
+ 356 00bc 616E6368 		.ascii	"anch revision 196615]\000"
+ 356      20726576 
+ 356      6973696F 
+ 356      6E203139 
+ 356      36363135 
+ 357              	.LASF16:
+ 358 00d2 75696E74 		.ascii	"uint8\000"
+ 358      3800
+ 359              	.LASF5:
+ 360 00d8 6C6F6E67 		.ascii	"long unsigned int\000"
+ 360      20756E73 
+ 360      69676E65 
+ARM GAS  C:\Users\CHUCK~1.ERH\AppData\Local\Temp\cceXLlop.s 			page 9
+
+
+ 360      6420696E 
+ 360      7400
+ 361              	.LASF7:
+ 362 00ea 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 362      206C6F6E 
+ 362      6720756E 
+ 362      7369676E 
+ 362      65642069 
+ 363              	.LASF1:
+ 364 0101 756E7369 		.ascii	"unsigned char\000"
+ 364      676E6564 
+ 364      20636861 
+ 364      7200
+ 365              	.LASF11:
+ 366 010f 63686172 		.ascii	"char\000"
+ 366      00
+ 367              	.LASF4:
+ 368 0114 6C6F6E67 		.ascii	"long int\000"
+ 368      20696E74 
+ 368      00
+ 369              	.LASF2:
+ 370 011d 73686F72 		.ascii	"short int\000"
+ 370      7420696E 
+ 370      7400
+ 371              	.LASF10:
+ 372 0127 646F7562 		.ascii	"double\000"
+ 372      6C6500
+ 373              	.LASF3:
+ 374 012e 73686F72 		.ascii	"short unsigned int\000"
+ 374      7420756E 
+ 374      7369676E 
+ 374      65642069 
+ 374      6E7400
+ 375              	.LASF0:
+ 376 0141 7369676E 		.ascii	"signed char\000"
+ 376      65642063 
+ 376      68617200 
+ 377              	.LASF9:
+ 378 014d 666C6F61 		.ascii	"float\000"
+ 378      7400
+ 379              	.LASF14:
+ 380 0153 2E5C6D61 		.ascii	".\\main.c\000"
+ 380      696E2E63 
+ 380      00
+ 381              	.LASF12:
+ 382 015c 73697A65 		.ascii	"sizetype\000"
+ 382      74797065 
+ 382      00
+ 383              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.7.3 20130312 (release) [ARM/embedded-4_7-br

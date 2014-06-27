@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="us-ascii"?>
+
+<fileSet version="1" anchorPath="C:\Users\chuck.erhardt\Documents\PSoC Creator\W5100_Example1\W5100_Example1-FreeSoC_Explorer.cydsn\codegentemp" xsi:schemaLocation="http://cypress.com/xsd/cypathdictionary cypathdictionary.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://cypress.com/xsd/cypathdictionary">
+  <file name="C:\Users\chuck.erhardt\Documents\PSoC Creator\W5100_Example1\W5100_Example1-FreeSoC_Explorer.cydsn\codegentemp\cyfitter_cfg.h" value="NONE;" />
+  <file name="C:\Users\chuck.erhardt\Documents\PSoC Creator\W5100_Example1\W5100_Example1-FreeSoC_Explorer.cydsn\codegentemp\cyfitter_cfg.c" value="ARM_C_FILE;" />
+  <file name="C:\Users\chuck.erhardt\Documents\PSoC Creator\W5100_Example1\W5100_Example1-FreeSoC_Explorer.cydsn\codegentemp\config.hex" value="NONE;" />
+  <file name="C:\Users\chuck.erhardt\Documents\PSoC Creator\W5100_Example1\W5100_Example1-FreeSoC_Explorer.cydsn\codegentemp\protect.hex" value="NONE;" />
+  <file name="C:\Users\chuck.erhardt\Documents\PSoC Creator\W5100_Example1\W5100_Example1-FreeSoC_Explorer.cydsn\codegentemp\eeprom.hex" value="NONE;" />
+  <file name="C:\Users\chuck.erhardt\Documents\PSoC Creator\W5100_Example1\W5100_Example1-FreeSoC_Explorer.cydsn\codegentemp\cymetadata.c" value="ARM_C_FILE;" />
+  <file name="C:\Users\chuck.erhardt\Documents\PSoC Creator\W5100_Example1\W5100_Example1-FreeSoC_Explorer.cydsn\codegentemp\cydevice.h" value="NONE;" />
+  <file name="C:\Users\chuck.erhardt\Documents\PSoC Creator\W5100_Example1\W5100_Example1-FreeSoC_Explorer.cydsn\codegentemp\cydevicegnu.inc" value="NONE;" />
+  <file name="C:\Users\chuck.erhardt\Documents\PSoC Creator\W5100_Example1\W5100_Example1-FreeSoC_Explorer.cydsn\codegentemp\cydevicerv.inc" value="NONE;" />
+  <file name="C:\Users\chuck.erhardt\Documents\PSoC Creator\W5100_Example1\W5100_Example1-FreeSoC_Explorer.cydsn\codegentemp\cydeviceiar.inc" value="NONE;" />
+  <file name="C:\Users\chuck.erhardt\Documents\PSoC Creator\W5100_Example1\W5100_Example1-FreeSoC_Explorer.cydsn\codegentemp\cydevice_trm.h" value="NONE;" />
+  <file name="C:\Users\chuck.erhardt\Documents\PSoC Creator\W5100_Example1\W5100_Example1-FreeSoC_Explorer.cydsn\codegentemp\cydevicegnu_trm.inc" value="NONE;" />
+  <file name="C:\Users\chuck.erhardt\Documents\PSoC Creator\W5100_Example1\W5100_Example1-FreeSoC_Explorer.cydsn\codegentemp\cydevicerv_trm.inc" value="NONE;" />
+  <file name="C:\Users\chuck.erhardt\Documents\PSoC Creator\W5100_Example1\W5100_Example1-FreeSoC_Explorer.cydsn\codegentemp\cydeviceiar_trm.inc" value="NONE;" />
+  <file name="C:\Users\chuck.erhardt\Documents\PSoC Creator\W5100_Example1\W5100_Example1-FreeSoC_Explorer.cydsn\codegentemp\cyfittergnu.inc" value="NONE;" />
+  <file name="C:\Users\chuck.erhardt\Documents\PSoC Creator\W5100_Example1\W5100_Example1-FreeSoC_Explorer.cydsn\codegentemp\cyfitterrv.inc" value="NONE;" />
+  <file name="C:\Users\chuck.erhardt\Documents\PSoC Creator\W5100_Example1\W5100_Example1-FreeSoC_Explorer.cydsn\codegentemp\cyfitteriar.inc" value="NONE;" />
+  <file name="C:\Users\chuck.erhardt\Documents\PSoC Creator\W5100_Example1\W5100_Example1-FreeSoC_Explorer.cydsn\codegentemp\cyfitter.h" value="NONE;" />
+  <file name="C:\Users\chuck.erhardt\Documents\PSoC Creator\W5100_Example1\W5100_Example1-FreeSoC_Explorer.cydsn\codegentemp\cydisabledsheets.h" value="NONE;" />
+  <file name="C:\Users\chuck.erhardt\Documents\PSoC Creator\W5100_Example1\W5100_Example1-FreeSoC_Explorer.cydsn\codegentemp\SPIM.c" value="ARM_C_FILE;SPIM" />
+  <file name="C:\Users\chuck.erhardt\Documents\PSoC Creator\W5100_Example1\W5100_Example1-FreeSoC_Explorer.cydsn\codegentemp\SPIM.h" value="NONE;SPIM" />
+  <file name="C:\Users\chuck.erhardt\Documents\PSoC Creator\W5100_Example1\W5100_Example1-FreeSoC_Explorer.cydsn\codegentemp\SPIM_PM.c" value="ARM_C_FILE;SPIM" />
+  <file name="C:\Users\chuck.erhardt\Documents\PSoC Creator\W5100_Example1\W5100_Example1-FreeSoC_Explorer.cydsn\codegentemp\SPIM_INT.c" value="ARM_C_FILE;SPIM" />
+  <file name="C:\Users\chuck.erhardt\Documents\PSoC Creator\W5100_Example1\W5100_Example1-FreeSoC_Explorer.cydsn\codegentemp\SPIM_PVT.h" value="NONE;SPIM" />
+  <file name="C:\Users\chuck.erhardt\Documents\PSoC Creator\W5100_Example1\W5100_Example1-FreeSoC_Explorer.cydsn\codegentemp\W5100.c" value="ARM_C_FILE;W5100" />
+  <file name="C:\Users\chuck.erhardt\Documents\PSoC Creator\W5100_Example1\W5100_Example1-FreeSoC_Explorer.cydsn\codegentemp\W5100.h" value="NONE;W5100" />
+  <file name="C:\Users\chuck.erhardt\Documents\PSoC Creator\W5100_Example1\W5100_Example1-FreeSoC_Explorer.cydsn\codegentemp\SPIM_IntClock.c" value="ARM_C_FILE;SPIM_IntClock" />
+  <file name="C:\Users\chuck.erhardt\Documents\PSoC Creator\W5100_Example1\W5100_Example1-FreeSoC_Explorer.cydsn\codegentemp\SPIM_IntClock.h" value="NONE;SPIM_IntClock" />
+  <file name="C:\Users\chuck.erhardt\Documents\PSoC Creator\W5100_Example1\W5100_Example1-FreeSoC_Explorer.cydsn\codegentemp\cm3gcc.ld" value="NONE;cy_boot" />
+  <file name="C:\Users\chuck.erhardt\Documents\PSoC Creator\W5100_Example1\W5100_Example1-FreeSoC_Explorer.cydsn\codegentemp\Cm3RealView.scat" value="NONE;cy_boot" />
+  <file name="C:\Users\chuck.erhardt\Documents\PSoC Creator\W5100_Example1\W5100_Example1-FreeSoC_Explorer.cydsn\codegentemp\Cm3Start.c" value="ARM_C_FILE;cy_boot" />
+  <file name="C:\Users\chuck.erhardt\Documents\PSoC Creator\W5100_Example1\W5100_Example1-FreeSoC_Explorer.cydsn\codegentemp\core_cm3_psoc5.h" value="NONE;cy_boot" />
+  <file name="C:\Users\chuck.erhardt\Documents\PSoC Creator\W5100_Example1\W5100_Example1-FreeSoC_Explorer.cydsn\codegentemp\core_cm3.h" value="NONE;cy_boot" />
+  <file name="C:\Users\chuck.erhardt\Documents\PSoC Creator\W5100_Example1\W5100_Example1-FreeSoC_Explorer.cydsn\codegentemp\CyBootAsmGnu.s" value="GNU_ARM_ASM_FILE;cy_boot" />
+  <file name="C:\Users\chuck.erhardt\Documents\PSoC Creator\W5100_Example1\W5100_Example1-FreeSoC_Explorer.cydsn\codegentemp\CyBootAsmRv.s" value="REALVIEW_ARM_ASM_FILE;cy_boot" />
+  <file name="C:\Users\chuck.erhardt\Documents\PSoC Creator\W5100_Example1\W5100_Example1-FreeSoC_Explorer.cydsn\codegentemp\CyDmac.c" value="ARM_C_FILE;cy_boot" />
+  <file name="C:\Users\chuck.erhardt\Documents\PSoC Creator\W5100_Example1\W5100_Example1-FreeSoC_Explorer.cydsn\codegentemp\CyDmac.h" value="NONE;cy_boot" />
+  <file name="C:\Users\chuck.erhardt\Documents\PSoC Creator\W5100_Example1\W5100_Example1-FreeSoC_Explorer.cydsn\codegentemp\CyFlash.c" value="ARM_C_FILE;cy_boot" />
+  <file name="C:\Users\chuck.erhardt\Documents\PSoC Creator\W5100_Example1\W5100_Example1-FreeSoC_Explorer.cydsn\codegentemp\CyFlash.h" value="NONE;cy_boot" />
+  <file name="C:\Users\chuck.erhardt\Documents\PSoC Creator\W5100_Example1\W5100_Example1-FreeSoC_Explorer.cydsn\codegentemp\CyLib.c" value="ARM_C_FILE;cy_boot" />
+  <file name="C:\Users\chuck.erhardt\Documents\PSoC Creator\W5100_Example1\W5100_Example1-FreeSoC_Explorer.cydsn\codegentemp\CyLib.h" value="NONE;cy_boot" />
+  <file name="C:\Users\chuck.erhardt\Documents\PSoC Creator\W5100_Example1\W5100_Example1-FreeSoC_Explorer.cydsn\codegentemp\cypins.h" value="NONE;cy_boot" />
+  <file name="C:\Users\chuck.erhardt\Documents\PSoC Creator\W5100_Example1\W5100_Example1-FreeSoC_Explorer.cydsn\codegentemp\cyPm.c" value="ARM_C_FILE;cy_boot" />
+  <file name="C:\Users\chuck.erhardt\Documents\PSoC Creator\W5100_Example1\W5100_Example1-FreeSoC_Explorer.cydsn\codegentemp\cyPm.h" value="NONE;cy_boot" />
+  <file name="C:\Users\chuck.erhardt\Documents\PSoC Creator\W5100_Example1\W5100_Example1-FreeSoC_Explorer.cydsn\codegentemp\CySpc.c" value="ARM_C_FILE;cy_boot" />
+  <file name="C:\Users\chuck.erhardt\Documents\PSoC Creator\W5100_Example1\W5100_Example1-FreeSoC_Explorer.cydsn\codegentemp\CySpc.h" value="NONE;cy_boot" />
+  <file name="C:\Users\chuck.erhardt\Documents\PSoC Creator\W5100_Example1\W5100_Example1-FreeSoC_Explorer.cydsn\codegentemp\cytypes.h" value="NONE;cy_boot" />
+  <file name="C:\Users\chuck.erhardt\Documents\PSoC Creator\W5100_Example1\W5100_Example1-FreeSoC_Explorer.cydsn\codegentemp\cyutils.c" value="ARM_C_FILE;cy_boot" />
+  <file name="C:\Users\chuck.erhardt\Documents\PSoC Creator\W5100_Example1\W5100_Example1-FreeSoC_Explorer.cydsn\codegentemp\core_cmFunc.h" value="NONE;cy_boot" />
+  <file name="C:\Users\chuck.erhardt\Documents\PSoC Creator\W5100_Example1\W5100_Example1-FreeSoC_Explorer.cydsn\codegentemp\core_cmInstr.h" value="NONE;cy_boot" />
+  <file name="C:\Users\chuck.erhardt\Documents\PSoC Creator\W5100_Example1\W5100_Example1-FreeSoC_Explorer.cydsn\codegentemp\Cm3Iar.icf" value="NONE;cy_boot" />
+  <file name="C:\Users\chuck.erhardt\Documents\PSoC Creator\W5100_Example1\W5100_Example1-FreeSoC_Explorer.cydsn\codegentemp\CyBootAsmIar.s" value="IAR_ASM_FILE;cy_boot" />
+  <file name="C:\Users\chuck.erhardt\Documents\PSoC Creator\W5100_Example1\W5100_Example1-FreeSoC_Explorer.cydsn\codegentemp\project.h" value="NONE;" />
+</fileSet>

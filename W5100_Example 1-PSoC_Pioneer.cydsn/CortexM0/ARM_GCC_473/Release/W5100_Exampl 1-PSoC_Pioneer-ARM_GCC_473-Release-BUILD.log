@@ -1,0 +1,72 @@
+--------------- Build Started: 06/27/2014 16:37:59 Project: W5100_Exampl 1-PSoC_Pioneer, Configuration: ARM GCC 4.7.3 Release ---------------
+The code generation step is up to date.
+arm-none-eabi-gcc.exe -I. -I./Generated_Source/PSoC4 -Wno-main -mcpu=cortex-m0 -mthumb -Wall -g -D NDEBUG -Wa,-alh=.\CortexM0\ARM_GCC_473\Release\main.lst -Os -ffunction-sections -c .\main.c -o .\CortexM0\ARM_GCC_473\Release\main.o
+arm-none-eabi-gcc.exe -I. -I./Generated_Source/PSoC4 -Wno-main -mcpu=cortex-m0 -mthumb -Wall -g -D NDEBUG -Wa,-alh=.\CortexM0\ARM_GCC_473\Release\cyfitter_cfg.lst -Os -ffunction-sections -c .\Generated_Source\PSoC4\cyfitter_cfg.c -o .\CortexM0\ARM_GCC_473\Release\cyfitter_cfg.o
+arm-none-eabi-gcc.exe -I. -I./Generated_Source/PSoC4 -Wno-main -mcpu=cortex-m0 -mthumb -Wall -g -D NDEBUG -Wa,-alh=.\CortexM0\ARM_GCC_473\Release\cymetadata.lst -Os -ffunction-sections -c .\Generated_Source\PSoC4\cymetadata.c -o .\CortexM0\ARM_GCC_473\Release\cymetadata.o
+arm-none-eabi-gcc.exe -I. -I./Generated_Source/PSoC4 -Wno-main -mcpu=cortex-m0 -mthumb -Wall -g -D NDEBUG -Wa,-alh=.\CortexM0\ARM_GCC_473\Release\SPI.lst -Os -ffunction-sections -c .\Generated_Source\PSoC4\SPI.c -o .\CortexM0\ARM_GCC_473\Release\SPI.o
+arm-none-eabi-gcc.exe -I. -I./Generated_Source/PSoC4 -Wno-main -mcpu=cortex-m0 -mthumb -Wall -g -D NDEBUG -Wa,-alh=.\CortexM0\ARM_GCC_473\Release\SPI_SPI_UART.lst -Os -ffunction-sections -c .\Generated_Source\PSoC4\SPI_SPI_UART.c -o .\CortexM0\ARM_GCC_473\Release\SPI_SPI_UART.o
+arm-none-eabi-gcc.exe -I. -I./Generated_Source/PSoC4 -Wno-main -mcpu=cortex-m0 -mthumb -Wall -g -D NDEBUG -Wa,-alh=.\CortexM0\ARM_GCC_473\Release\SPI_PM.lst -Os -ffunction-sections -c .\Generated_Source\PSoC4\SPI_PM.c -o .\CortexM0\ARM_GCC_473\Release\SPI_PM.o
+arm-none-eabi-gcc.exe -I. -I./Generated_Source/PSoC4 -Wno-main -mcpu=cortex-m0 -mthumb -Wall -g -D NDEBUG -Wa,-alh=.\CortexM0\ARM_GCC_473\Release\SPI_SPI.lst -Os -ffunction-sections -c .\Generated_Source\PSoC4\SPI_SPI.c -o .\CortexM0\ARM_GCC_473\Release\SPI_SPI.o
+arm-none-eabi-gcc.exe -I. -I./Generated_Source/PSoC4 -Wno-main -mcpu=cortex-m0 -mthumb -Wall -g -D NDEBUG -Wa,-alh=.\CortexM0\ARM_GCC_473\Release\SPI_BOOT.lst -Os -ffunction-sections -c .\Generated_Source\PSoC4\SPI_BOOT.c -o .\CortexM0\ARM_GCC_473\Release\SPI_BOOT.o
+arm-none-eabi-gcc.exe -I. -I./Generated_Source/PSoC4 -Wno-main -mcpu=cortex-m0 -mthumb -Wall -g -D NDEBUG -Wa,-alh=.\CortexM0\ARM_GCC_473\Release\SPI_SPI_BOOT.lst -Os -ffunction-sections -c .\Generated_Source\PSoC4\SPI_SPI_BOOT.c -o .\CortexM0\ARM_GCC_473\Release\SPI_SPI_BOOT.o
+arm-none-eabi-gcc.exe -I. -I./Generated_Source/PSoC4 -Wno-main -mcpu=cortex-m0 -mthumb -Wall -g -D NDEBUG -Wa,-alh=.\CortexM0\ARM_GCC_473\Release\W5100.lst -Os -ffunction-sections -c .\Generated_Source\PSoC4\W5100.c -o .\CortexM0\ARM_GCC_473\Release\W5100.o
+.\Generated_Source\PSoC4\W5100.c:485:15: warning: 'W5100_GetGatewayAddress' defined but not used [-Wunused-function]
+.\Generated_Source\PSoC4\W5100.c:497:15: warning: 'W5100_GetSubnetMask' defined but not used [-Wunused-function]
+.\Generated_Source\PSoC4\W5100.c:521:14: warning: 'W5100_GetMode' defined but not used [-Wunused-function]
+.\Generated_Source\PSoC4\W5100.c:533:14: warning: 'W5100_GetIR' defined but not used [-Wunused-function]
+.\Generated_Source\PSoC4\W5100.c:539:13: warning: 'W5100_SetIMR' defined but not used [-Wunused-function]
+.\Generated_Source\PSoC4\W5100.c:545:14: warning: 'W5100_GetIMR' defined but not used [-Wunused-function]
+.\Generated_Source\PSoC4\W5100.c:551:13: warning: 'W5100_SetRetryTime' defined but not used [-Wunused-function]
+.\Generated_Source\PSoC4\W5100.c:557:15: warning: 'W5100_GetRetryTime' defined but not used [-Wunused-function]
+.\Generated_Source\PSoC4\W5100.c:563:13: warning: 'W5100_SetRetryCount' defined but not used [-Wunused-function]
+.\Generated_Source\PSoC4\W5100.c:569:14: warning: 'W5100_GetRetryCount' defined but not used [-Wunused-function]
+.\Generated_Source\PSoC4\W5100.c:581:14: warning: 'W5100_GetRxMemSize' defined but not used [-Wunused-function]
+.\Generated_Source\PSoC4\W5100.c:593:14: warning: 'W5100_GetTxMemSize' defined but not used [-Wunused-function]
+.\Generated_Source\PSoC4\W5100.c:599:13: warning: 'W5100_SetUnreachableIP' defined but not used [-Wunused-function]
+.\Generated_Source\PSoC4\W5100.c:605:15: warning: 'W5100_GetUnreachableIP' defined but not used [-Wunused-function]
+.\Generated_Source\PSoC4\W5100.c:611:13: warning: 'W5100_SetUnreachablePort' defined but not used [-Wunused-function]
+.\Generated_Source\PSoC4\W5100.c:617:15: warning: 'W5100_GetUnreachablePort' defined but not used [-Wunused-function]
+.\Generated_Source\PSoC4\W5100.c:643:14: warning: 'W5100_GetSocketMode' defined but not used [-Wunused-function]
+.\Generated_Source\PSoC4\W5100.c:683:13: warning: 'W5100_SetSocketStatus' defined but not used [-Wunused-function]
+.\Generated_Source\PSoC4\W5100.c:707:15: warning: 'W5100_GetSocketSourcePort' defined but not used [-Wunused-function]
+.\Generated_Source\PSoC4\W5100.c:715:13: warning: 'W5100_SetSocketDestMAC' defined but not used [-Wunused-function]
+.\Generated_Source\PSoC4\W5100.c:723:13: warning: 'W5100_GetSocketDestMAC' defined but not used [-Wunused-function]
+.\Generated_Source\PSoC4\W5100.c:739:15: warning: 'W5100_GetSocketDestIP' defined but not used [-Wunused-function]
+.\Generated_Source\PSoC4\W5100.c:755:15: warning: 'W5100_GetSocketDestPort' defined but not used [-Wunused-function]
+.\Generated_Source\PSoC4\W5100.c:763:13: warning: 'W5100_SetSocketMaxSegSize' defined but not used [-Wunused-function]
+.\Generated_Source\PSoC4\W5100.c:771:15: warning: 'W5100_GetSocketMaxSegSize' defined but not used [-Wunused-function]
+.\Generated_Source\PSoC4\W5100.c:779:16: warning: 'W5100_GetSocketProto' defined but not used [-Wunused-function]
+.\Generated_Source\PSoC4\W5100.c:787:13: warning: 'W5100_SetSocketTOS' defined but not used [-Wunused-function]
+.\Generated_Source\PSoC4\W5100.c:795:14: warning: 'W5100_GetSocketTOS' defined but not used [-Wunused-function]
+.\Generated_Source\PSoC4\W5100.c:803:13: warning: 'W5100_SetSocketTTL' defined but not used [-Wunused-function]
+.\Generated_Source\PSoC4\W5100.c:811:14: warning: 'W5100_GetSocketTTL' defined but not used [-Wunused-function]
+.\Generated_Source\PSoC4\W5100.c:819:13: warning: 'W5100_SetSocketTxFree' defined but not used [-Wunused-function]
+.\Generated_Source\PSoC4\W5100.c:835:13: warning: 'W5100_SetSocketTxReadPtr' defined but not used [-Wunused-function]
+.\Generated_Source\PSoC4\W5100.c:843:15: warning: 'W5100_GetSocketTxReadPtr' defined but not used [-Wunused-function]
+.\Generated_Source\PSoC4\W5100.c:1449:1: warning: 'W5100_SocketSendMac' defined but not used [-Wunused-function]
+.\Generated_Source\PSoC4\W5100.c: In function 'W5100_W51_Read':
+.\Generated_Source\PSoC4\W5100.c:328:2: warning: 'dat' may be used uninitialized in this function [-Wmaybe-uninitialized]
+.\Generated_Source\PSoC4\W5100.c: In function 'W5100_TcpConnect':
+.\Generated_Source\PSoC4\W5100.c:1525:4: warning: 'timeout' may be used uninitialized in this function [-Wmaybe-uninitialized]
+.\Generated_Source\PSoC4\W5100.c: In function 'W5100_UdpSend':
+.\Generated_Source\PSoC4\W5100.c:1675:2: warning: 'TxSize' may be used uninitialized in this function [-Wmaybe-uninitialized]
+arm-none-eabi-gcc.exe -I. -I./Generated_Source/PSoC4 -Wno-main -mcpu=cortex-m0 -mthumb -Wall -g -D NDEBUG -Wa,-alh=.\CortexM0\ARM_GCC_473\Release\SPI_ss0_m.lst -Os -ffunction-sections -c .\Generated_Source\PSoC4\SPI_ss0_m.c -o .\CortexM0\ARM_GCC_473\Release\SPI_ss0_m.o
+arm-none-eabi-gcc.exe -I. -I./Generated_Source/PSoC4 -Wno-main -mcpu=cortex-m0 -mthumb -Wall -g -D NDEBUG -Wa,-alh=.\CortexM0\ARM_GCC_473\Release\SPI_mosi_m.lst -Os -ffunction-sections -c .\Generated_Source\PSoC4\SPI_mosi_m.c -o .\CortexM0\ARM_GCC_473\Release\SPI_mosi_m.o
+arm-none-eabi-gcc.exe -I. -I./Generated_Source/PSoC4 -Wno-main -mcpu=cortex-m0 -mthumb -Wall -g -D NDEBUG -Wa,-alh=.\CortexM0\ARM_GCC_473\Release\SPI_miso_m.lst -Os -ffunction-sections -c .\Generated_Source\PSoC4\SPI_miso_m.c -o .\CortexM0\ARM_GCC_473\Release\SPI_miso_m.o
+arm-none-eabi-gcc.exe -I. -I./Generated_Source/PSoC4 -Wno-main -mcpu=cortex-m0 -mthumb -Wall -g -D NDEBUG -Wa,-alh=.\CortexM0\ARM_GCC_473\Release\SPI_sclk_m.lst -Os -ffunction-sections -c .\Generated_Source\PSoC4\SPI_sclk_m.c -o .\CortexM0\ARM_GCC_473\Release\SPI_sclk_m.o
+arm-none-eabi-gcc.exe -I. -I./Generated_Source/PSoC4 -Wno-main -mcpu=cortex-m0 -mthumb -Wall -g -D NDEBUG -Wa,-alh=.\CortexM0\ARM_GCC_473\Release\SPI_ss1_m.lst -Os -ffunction-sections -c .\Generated_Source\PSoC4\SPI_ss1_m.c -o .\CortexM0\ARM_GCC_473\Release\SPI_ss1_m.o
+arm-none-eabi-gcc.exe -I. -I./Generated_Source/PSoC4 -Wno-main -mcpu=cortex-m0 -mthumb -Wall -g -D NDEBUG -Wa,-alh=.\CortexM0\ARM_GCC_473\Release\SPI_SCBCLK.lst -Os -ffunction-sections -c .\Generated_Source\PSoC4\SPI_SCBCLK.c -o .\CortexM0\ARM_GCC_473\Release\SPI_SCBCLK.o
+arm-none-eabi-gcc.exe -I. -I./Generated_Source/PSoC4 -Wno-main -mcpu=cortex-m0 -mthumb -Wall -g -D NDEBUG -Wa,-alh=.\CortexM0\ARM_GCC_473\Release\Cm0Start.lst -Os -ffunction-sections -c .\Generated_Source\PSoC4\Cm0Start.c -o .\CortexM0\ARM_GCC_473\Release\Cm0Start.o
+arm-none-eabi-as.exe -I. -I./Generated_Source/PSoC4 -mcpu=cortex-m0 -mthumb -g -alh=.\CortexM0\ARM_GCC_473\Release/CyBootAsmGnu.lst -o .\CortexM0\ARM_GCC_473\Release\CyBootAsmGnu.o .\Generated_Source\PSoC4\CyBootAsmGnu.s
+arm-none-eabi-gcc.exe -I. -I./Generated_Source/PSoC4 -Wno-main -mcpu=cortex-m0 -mthumb -Wall -g -D NDEBUG -Wa,-alh=.\CortexM0\ARM_GCC_473\Release\CyFlash.lst -Os -ffunction-sections -c .\Generated_Source\PSoC4\CyFlash.c -o .\CortexM0\ARM_GCC_473\Release\CyFlash.o
+arm-none-eabi-gcc.exe -I. -I./Generated_Source/PSoC4 -Wno-main -mcpu=cortex-m0 -mthumb -Wall -g -D NDEBUG -Wa,-alh=.\CortexM0\ARM_GCC_473\Release\CyLib.lst -Os -ffunction-sections -c .\Generated_Source\PSoC4\CyLib.c -o .\CortexM0\ARM_GCC_473\Release\CyLib.o
+arm-none-eabi-gcc.exe -I. -I./Generated_Source/PSoC4 -Wno-main -mcpu=cortex-m0 -mthumb -Wall -g -D NDEBUG -Wa,-alh=.\CortexM0\ARM_GCC_473\Release\cyPm.lst -Os -ffunction-sections -c .\Generated_Source\PSoC4\cyPm.c -o .\CortexM0\ARM_GCC_473\Release\cyPm.o
+arm-none-eabi-gcc.exe -I. -I./Generated_Source/PSoC4 -Wno-main -mcpu=cortex-m0 -mthumb -Wall -g -D NDEBUG -Wa,-alh=.\CortexM0\ARM_GCC_473\Release\cyutils.lst -Os -ffunction-sections -c .\Generated_Source\PSoC4\cyutils.c -o .\CortexM0\ARM_GCC_473\Release\cyutils.o
+arm-none-eabi-ar.exe -rs ".\CortexM0\ARM_GCC_473\Release\W5100_Exampl 1-PSoC_Pioneer.a" .\CortexM0\ARM_GCC_473\Release\cyfitter_cfg.o .\CortexM0\ARM_GCC_473\Release\SPI.o .\CortexM0\ARM_GCC_473\Release\SPI_SPI_UART.o .\CortexM0\ARM_GCC_473\Release\SPI_PM.o .\CortexM0\ARM_GCC_473\Release\SPI_SPI.o .\CortexM0\ARM_GCC_473\Release\SPI_BOOT.o .\CortexM0\ARM_GCC_473\Release\SPI_SPI_BOOT.o .\CortexM0\ARM_GCC_473\Release\W5100.o .\CortexM0\ARM_GCC_473\Release\SPI_ss0_m.o .\CortexM0\ARM_GCC_473\Release\SPI_mosi_m.o .\CortexM0\ARM_GCC_473\Release\SPI_miso_m.o .\CortexM0\ARM_GCC_473\Release\SPI_sclk_m.o .\CortexM0\ARM_GCC_473\Release\SPI_ss1_m.o .\CortexM0\ARM_GCC_473\Release\SPI_SCBCLK.o .\CortexM0\ARM_GCC_473\Release\CyBootAsmGnu.o .\CortexM0\ARM_GCC_473\Release\CyFlash.o .\CortexM0\ARM_GCC_473\Release\CyLib.o .\CortexM0\ARM_GCC_473\Release\cyPm.o .\CortexM0\ARM_GCC_473\Release\cyutils.o
+arm-none-eabi-ar.exe: creating .\CortexM0\ARM_GCC_473\Release\W5100_Exampl 1-PSoC_Pioneer.a
+arm-none-eabi-gcc.exe -mthumb -march=armv6-m -T .\Generated_Source\PSoC4\cm0gcc.ld -g "-Wl,-Map,.\CortexM0\ARM_GCC_473\Release\W5100_Exampl 1-PSoC_Pioneer.map" -specs=nano.specs -Wl,--gc-sections -Wl,--start-group -o ".\CortexM0\ARM_GCC_473\Release\W5100_Exampl 1-PSoC_Pioneer.elf" .\CortexM0\ARM_GCC_473\Release\main.o .\CortexM0\ARM_GCC_473\Release\cymetadata.o .\CortexM0\ARM_GCC_473\Release\Cm0Start.o ".\CortexM0\ARM_GCC_473\Release\W5100_Exampl 1-PSoC_Pioneer.a" "C:\Program Files (x86)\Cypress\PSoC Creator\3.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM0\ARM_GCC_473\Release\CyComponentLibrary.a" -Wl,--end-group
+cyelftool.exe -C "C:\Users\chuck.erhardt\Documents\PSoC Creator\W5100_Example1\W5100_Exampl 1-PSoC_Pioneer.cydsn\CortexM0\ARM_GCC_473\Release\W5100_Exampl 1-PSoC_Pioneer.elf" --flash_size 32768 --flash_row_size 128
+cyelftool.exe -S "C:\Users\chuck.erhardt\Documents\PSoC Creator\W5100_Example1\W5100_Exampl 1-PSoC_Pioneer.cydsn\CortexM0\ARM_GCC_473\Release\W5100_Exampl 1-PSoC_Pioneer.elf"
+Flash used: 2912 of 32768 bytes (8.9 %).
+SRAM used: 1572 of 4096 bytes (38.4 %).
+--------------- Build Succeeded: 06/27/2014 16:38:07 ---------------
